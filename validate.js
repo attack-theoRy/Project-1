@@ -1,8 +1,10 @@
 // Variable declarations
 
-var apiKey = ba4e9c96082b0721c5c3dbaf01177cf2
+var apiKey = 'ba4e9c96082b0721c5c3dbaf01177cf2'
 
 var url = 'http://apilayer.net/api/check?access_key='
+
+var queryURL = url + apiKey + '&email=piroozwallace@outlook.com'
 
 var userEmail = ''
 
@@ -17,3 +19,20 @@ http://apilayer.net/api/check
     & format = 1
 
 */
+
+function registerEmail()
+{
+
+
+$.ajax({
+    url: queryURL,
+    method: "GET"
+  })
+  .then(function (response){
+
+    console.log(response)
+
+  })
+}
+
+//registerEmail()
