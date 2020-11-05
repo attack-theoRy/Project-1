@@ -17,12 +17,10 @@ http://apilayer.net/api/check
     & email = piroozwallace@outlook.com
     & smtp = 1
     & format = 1
-
 */
 
 function registerEmail()
 {
-
 
 $.ajax({
     url: queryURL,
@@ -32,7 +30,13 @@ $.ajax({
 
     console.log(response)
 
+    if(response.format_valid)
+    {
+        $('#form_error').text('Email not formatted properly')
+        console.log("format")
+    }
+
   })
 }
 
-//registerEmail()
+registerEmail()
