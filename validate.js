@@ -1,11 +1,15 @@
 // Variable declarations
 
+// api Key to be used
 var apiKey = 'ba4e9c96082b0721c5c3dbaf01177cf2'
 
+// starting URL
 var url = 'http://apilayer.net/api/check?access_key='
 
+// example API call
 var queryURL = url + apiKey + '&email=piroozwallace@outlook.com'
 
+// the user's email
 var userEmail = ''
 
 
