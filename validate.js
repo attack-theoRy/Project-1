@@ -7,14 +7,23 @@ var apiKey = 'ba4e9c96082b0721c5c3dbaf01177cf2'
 var url = 'http://apilayer.net/api/check?access_key='
 
 // example API call
-var queryURL = url + apiKey + '&email=piroozwallace@outlook.com'
+var queryURL = url + apiKey + '&email='
 
 // the user's email
 var userEmail = ''
 
+// array of objects that will be used to store user profiles
+var storedUsers = [
+  {
+     // each user will have email, screenname and password stored
+    email : '',
+    sn : '',
+    pw : ''
+  }
+]
 
 /*
-
+ Example api call
 http://apilayer.net/api/check
 
     ? access_key = ba4e9c96082b0721c5c3dbaf01177cf2
@@ -23,24 +32,60 @@ http://apilayer.net/api/check
     & format = 1
 */
 
+var form = document.getElementById("registerForm");
+
+// event listener for the submit function
+form.addEventListener("submit", function(event) {
+  event.preventDefault()
+  registerEmail()
+})
+
+// function to register Email
 function registerEmail()
 {
 
+  // get the user's email
+  var emailInput = $('#email').val()
+  
+  // add it to the query
+  queryURL += emailInput
+
+
+  // ajax call with mailboxlayer api
 $.ajax({
     url: queryURL,
     method: "GET"
   })
   .then(function (response){
 
+    // debug console
+    console.log('form submitted')
+
+    // debug response object
     console.log(response)
 
-    if(response.format_valid)
+    if(response.format_valid && response.mx_found)
     {
-        $('#form_error').text('Email not formatted properly')
+      // debug
+      console.log("email valid")
+        
+      // display if email is valid
+      $('#form_results').text('Email is VALID!')
         console.log("format")
+        
+    }
+    else
+    {
+      // display if it is not
+      $('#form_results').text('Email not valid')
+    
     }
 
+
+    // reset the queryURL and email input
+    $('#email').empty()
+    queryURL = url + apiKey + '&email='
+
+  
   })
 }
-
-registerEmail()
