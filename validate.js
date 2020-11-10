@@ -32,6 +32,13 @@ http://apilayer.net/api/check
     & format = 1
 */
 
+function loadUsers()
+{
+  storedUsers = JSON.parse(localStorage.getItem('saveUserArray'))
+
+  
+}
+
 var form = document.getElementById("registerForm");
 
 // event listener for the submit function
@@ -40,12 +47,28 @@ form.addEventListener("submit", function(event) {
   registerEmail()
 })
 
+loadUsers()
+
 // function to register Email
 function registerEmail()
 {
 
   // get the user's email
   var emailInput = $('#email').val()
+
+  var passwordInput = $('#pw').val()
+
+  var usernameInput = $('#sn').val()
+
+  for(var i = 0; i < storedUsers.length; i++)
+  {
+    if(emailInput === storedUsers.email)
+    {
+      $('#form_results').text('Email already taken')
+
+    }
+  }
+
   
   // add it to the query
   queryURL += emailInput
@@ -72,7 +95,6 @@ $.ajax({
       // display if email is valid
       $('#form_results').text('Email is VALID!')
         console.log("format")
-        
     }
     else
     {
@@ -88,4 +110,10 @@ $.ajax({
 
   
   })
+}
+
+
+function login()
+{
+
 }
