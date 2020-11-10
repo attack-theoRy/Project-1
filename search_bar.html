@@ -19,13 +19,19 @@
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
         </script>
 
+        <div>
+            <h1>Search For An Event In Your Area!</h1>
+        </div>
+
     <!--Search Bar CSS-->
+    <div>
     <form id="searchBar" class="uk-search uk-search-default">
         <!-- <a href="" uk-search-icon></a> -->
-        <input id='searchWord' type="search" placeholder="">
-        <input id='searchCity' type="search" placeholder="">
+        <input id='searchEvent' type="search" placeholder="Event Type">
+        <input id='searchCity' type="search" placeholder="City">
         <input type="submit" value="submit">
     </form>
+    </div>
 
     <!--Search Function-->
     <script id="searchEvents" type="text/javascript">
@@ -33,7 +39,7 @@
         var searchFunction = function (event) {
             event.preventDefault()
             var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?"
-            var searchWord = "keyword=" + document.querySelector('#searchWord').value
+            var searchEvent = "keyword=" + document.querySelector('#searchEvent').value
             var city = "&city=" + document.querySelector('#searchCity').value
             var query = "&apikey=rjC9JcYGVmI9QLKslEzKTEDnb93gABPp"
             $.ajax({
@@ -42,7 +48,7 @@
                 async: true,
                 dataType: "json",
                 success: function (json) {
-                    console.log(searchWord)
+                    console.log(searchEvent)
                     console.log(searchCity)
                     console.log(json);
                     // Parse the response.
