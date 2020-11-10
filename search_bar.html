@@ -66,6 +66,11 @@
                 },
                 error: function (xhr, status, err) {
                     // This time, we do not end up here!
+                    console.log(json._embedded.events[0].name)
+                    for (var i = 0; i < json._embedded.event.length; i++) {
+                        // display each element
+                        $('<p>').text(json._embedded.event[i].name)
+                    }
                 }
             });
         }
