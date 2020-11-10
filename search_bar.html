@@ -29,6 +29,7 @@
             <!-- <a href="" uk-search-icon></a> -->
             <input id='searchEvent' type="search" placeholder="Name of Event">
             <input id='searchCity' type="search" placeholder="City">
+            <input id='genreId' type="search" placeholder="Genre">
             <input type="submit" value="submit">
         </form>
     </div>
@@ -46,13 +47,15 @@
 
         var searchFunction = function (event) {
             event.preventDefault()
-            var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?"
+            var queryEventURL = "https://app.ticketmaster.com/discovery/v2/events.json?"
             var searchEvent = "keyword=" + document.querySelector('#searchEvent').value
+            var searchGenre = "&grenreId=" + document.querySelector('#genreId').value
             var city = "&city=" + document.querySelector('#searchCity').value
             var query = "&apikey=rjC9JcYGVmI9QLKslEzKTEDnb93gABPp"
+            var queryClassificationURL = "https://app.ticketmaster.com/discovery/v2/classifications.json?"
             $.ajax({
                 type: "GET",
-                url: queryURL + searchEvent + city + query,
+                url: queryEventURL + searchEvent + searchGenre + city + eventQuery,
                 async: true,
                 dataType: "json",
                 success: function (json) {
@@ -64,10 +67,22 @@
                 },
                 error: function (xhr, status, err) {
                     // This time, we do not end up here!
+                    $.ajax({
+                        type: "GET",
+                        url: queryClassificationURL + query,
+                        dataType: "json",
+                        success: function (json) {
+                            console.log(json);
+                            // Parse the response.
+                            // Do other things.
+                        },
+                        error: function (xhr, status, err) {
+                            // This time, we do not end up here!
+                        }
+                    });
                 }
             });
         }
-        $('#searchBar').submit(searchFunction)
 
     </script>
 </body>
