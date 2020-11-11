@@ -4,17 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css"href="styleReg.css">
-
+    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="css/uikit.min.css" />
+        <script src="js/uikit.min.js"></script>
+        <script src="js/uikit-icons.min.js"></script>
     <title>Register</title>
 </head>
 <body>
 
-    <!--Heading for Register form (feel free to change the styling on all of this as this is like default w3schools styles-->
-    <h2 style="text-align:center">Register for Wknd</h2>
-
+    <div class="uk-position-relative">
+      <img src="unsplash.jpg" alt="">
+      <div class="uk-position-top">
+          <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+              <div class="uk-navbar-right uk-light">
+                  <ul class="uk-navbar-nav">
+                      <li class="uk-active nav-item"><a href="search_bar.html">FIND</a></li>
+                      <li class="uk-active nav-item"><a href="register.html">REGISTER</a></li>
+                      <li class="uk-active nav-item"><a href="#">@username</a></li>
+                  </ul>
+              </div>
+          </nav>
+          <!--Heading for Register form (feel free to change the styling on all of this as this is like default w3schools styles-->
+    <div class="titleBox">
+    <h2 style="text-align:center" class="title">Register for wknd</h2>
+    </div>
 
     <!--Register form (feel free to change the styling on all of this as this is like default w3schools styles-->
-    <div class="container">
+    <div class="container box">
         <form id='registerForm'>
         
           <!--Email input-->
@@ -44,7 +60,9 @@
       </div>
 
       <!--Where the results of the mailboxlayer API go-->
-    <h4 id='form_results'>Email Results Here</h4>
+    <h4 style="text-align:center" id='form_results'>Email Results Here</h4>
+
+      </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="validate.js"></script>
