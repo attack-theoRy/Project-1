@@ -6,10 +6,32 @@
     font-size: 300px;
     padding-left: 1rem;
     text-align: center;
-    margin-top: 50px;
     color: white;
 }
 
 .btn {
     align-items: center;
+}
+
+img{
+    height: 100vh;
+    width: 100vw;
+}
+
+@media screen and (max-width: 600px) {
+    .header{
+        font-size: 150px;
+        padding-left: 1rem;
+        text-align: center;
+        color: white;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .header{
+        font-size: 200px;
+        padding-left: 1rem;
+        text-align: center;
+        color: white;
+    }
 }
