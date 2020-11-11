@@ -53,7 +53,7 @@ function loadUsers()
 {
 
   storedUsers = JSON.parse(localStorage.getItem('saveUserArray'))
-  
+
 }
 
 
@@ -74,7 +74,7 @@ function registerEmail()
   // get the user's email
   var emailInput = $('#email').val()
 
-  
+  // get the user's password
   var passwordInput = $('#pw').val()
 
   var usernameInput = $('#sn').val()
@@ -123,22 +123,28 @@ $.ajax({
     {
       // debug 
       console.log("email valid")
+
+      $('#user').text(usernameInput)
+
         
       // display if email is valid
       $('#form_results').text('Email is VALID!')
+
 
       // set the new user with inputs if it's unique and valid email
       if(isUnique)
       {
         // store the new variables in the new user object
-        newUser[0].email = emailInput
-         newUser[0].pw = passwordInput
-         newUser[0].sn = usernameInput
+        //newUser[0].email = emailInput
+        // newUser[0].pw = passwordInput
+        // newUser[0].sn = usernameInput
 
          console.log(newUser)
 
+         console.log(usernameInput)
+        
          // add user to array of objects
-        storedUsers.push(newUser[0])
+        //storedUsers.push(newUser[0])
 
         // add it localstorage
         localStorage.setItem('saveUserArray', JSON.stringify(storedUsers))
@@ -158,7 +164,6 @@ $.ajax({
       $('#form_results').text('Email not valid')
     
     }
-
 
     // reset the queryURL and email input
     $('#email').empty()
