@@ -32,6 +32,9 @@
             <input id='genreId' type="search" placeholder="Genre">
             <input type="submit" value="submit">
         </form>
+
+        <p>Search Results here</p>
+        <p id='searchResults'></p>
     </div>
 
     <div>
@@ -64,27 +67,33 @@
 
                     console.log(json._embedded.events[0].name)
 
-                    for(var i = 0; i < json._embedded.event.length; i++)
+                  /*  for(var i = 0; i < json._embedded.event.length; i++)
                     {
                         // display each element
                         $('<p>').text(json._embedded.event[i].name)
 
-                    }
+                    } */
                     // Parse the response.
+
+                    console.log(json._embedded.events[0].name)
+                    for (var i = 0; i < 5 /*json._embedded.event.length8*/; i++) {
+                        // display each element
+                        var thisResult = $('<p>').text(json._embedded.event[i].name)
+                       // thisResult = $('<p>').text('ThisResult Here')
+                        $('#searchResults').append(thisResult)
+                    }
                     
                     // Do other things.
                 },
                 error: function (xhr, status, err) {
                     // This time, we do not end up here!
-                    console.log(json._embedded.events[0].name)
-                    for (var i = 0; i < json._embedded.event.length; i++) {
-                        // display each element
-                        $('<p>').text(json._embedded.event[i].name)
-                    }
+
                 }
             });
         }
         $('#searchBar').submit(searchFunction)
+
+
 
     </script>
 </body>
