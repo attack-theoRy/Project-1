@@ -9,8 +9,14 @@ img{
     width: 100vw;
 }
 
-.box {
-    border: solid black 2px;
-    margin-left: 150px;
-    margin-right: 150px;
+.titleBox{
+    background-color: black;
+    margin: auto;
+    width: 50%;
+    margin-bottom: 5px;
+}
+
+.title{
+    color: white;
+    padding: 10px;
 }
