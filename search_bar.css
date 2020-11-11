@@ -1,0 +1,15 @@
+.header {
+    text-align: center;
+    font-family: monospace;
+}
+
+img{
+    height: 100vh;
+    width: 100vw;
+}
+
+.box {
+    border: solid black 2px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
