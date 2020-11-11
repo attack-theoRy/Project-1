@@ -18,18 +18,9 @@ img{
     width: 100vw;
 }
 
-@media screen and (max-width: 600px) {
-    .header{
-        font-size: 150px;
-        padding-left: 1rem;
-        text-align: center;
-        color: white;
-    }
-}
-
 @media screen and (max-width: 1400px) {
     .header{
-        font-size: 200px;
+        font-size: 150px;
         padding-left: 1rem;
         text-align: center;
         color: white;
