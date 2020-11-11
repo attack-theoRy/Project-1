@@ -118,6 +118,7 @@ $.ajax({
     // debug response object
     console.log(response)
 
+    // check to make sure email is valid
     if(response.format_valid && response.mx_found)
     {
       // debug 
