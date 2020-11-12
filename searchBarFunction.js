@@ -19,10 +19,16 @@ var searchFunction = function (event) {
 
 
             // empty the search results first
-            $('#searchCards').empty
-    
+            $('#searchCards').empty()
 
+            // if there are no events found with that search criteria
+            if(json.page.number == 0)
+            {
+                console.log('no matching criteria')
+                $('#searchResults').text('Did not find anything matching that criteria')
 
+            }
+            else {
             // loop through all results
             for (var i = 0; i < json._embedded.events.length; i++) {
                 
@@ -70,6 +76,7 @@ var searchFunction = function (event) {
                 // add the card to the page
                 $('#searchCards').append(card)
             }
+        }
 
             // Do other things.
         },
@@ -79,4 +86,6 @@ var searchFunction = function (event) {
         }
     });
 }
+
+// event listener for form submission
 $('#searchBar').submit(searchFunction)
