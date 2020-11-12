@@ -16,22 +16,46 @@ var searchFunction = function (event) {
             console.log(searchCity)
             console.log(json);
 
-            console.log(json._embedded.events[0].name)
 
-            /*  for(var i = 0; i < json._embedded.event.length; i++)
-              {
-                  // display each element
-                  $('<p>').text(json._embedded.event[i].name)
- 
-              } */
             // Parse the response.
 
             console.log(json._embedded.events[0].name)
             for (var i = 0; i < 5 /*json._embedded.event.length8*/; i++) {
+                
+                // console debug
+                console.log(json._embedded.events[i])
+
+                
                 // display each element
                 var thisResult = $('<p>').text(json._embedded.events[i].name)
+
+                 
+                // STARTING TO DISPLAY RESULTS AS CARD
+                var card = $("<div>").addClass("card");
+                var cardBody = $("<div>").addClass("card-body");
+                var eventTitle = $("<h4>").addClass("card-title").text(json._embedded.events[i].name);
+
+                //var city = $("<h4>").addClass("card-title").text(response.name);
+                
+                // var cityDate = $("<h4>").addClass("card-title").text(date);
+                
+              //   var temperature = $("<p>").addClass("card-text current-temp").text("Temperature: " + tempFahren + " °F");
+             //   var humidity = $("<p>").addClass("card-text current-humidity").text("Humidity: " + response.main.humidity + "%");
+             //   var wind = $("<p>").addClass("card-text current-wind").text("Wind Speed: " + response.wind.speed + " MPH");
+                var image = $("<img>").attr("src", json._embedded.events[i].images[0].url)
+
+                //var venue = $('<p>').addClass('card-text').text("Venue: " + json._embedded.events[i]. )
+
+                //var priceRange = $('<p>').addClass('card-text').text("Price range: " + json._embedded)
+            
+                // add to page
+                cardBody.append(eventTitle, image)
+                //cardBody.append(eventTitle ); 
+                card.append(cardBody);
+            
+              //  $("#currentCity").append(card)
                 // thisResult = $('<p>').text('ThisResult Here')
-                $('#searchResults').append(thisResult)
+                $('#searchCards').append(card)
             }
 
             // Do other things.
