@@ -17,44 +17,57 @@ var searchFunction = function (event) {
             console.log(json);
 
 
-            // Parse the response.
 
-            console.log(json._embedded.events[0].name)
-            for (var i = 0; i < 5 /*json._embedded.event.length8*/; i++) {
+            // empty the search results first
+            $('#searchCards').empty
+    
+
+
+            // loop through all results
+            for (var i = 0; i < json._embedded.events.length; i++) {
                 
                 // console debug
                 console.log(json._embedded.events[i])
 
-                
-                // display each element
-                var thisResult = $('<p>').text(json._embedded.events[i].name)
+
+                // to abbreviate the calls
+                var thisResult = json._embedded.events[i]
 
                  
-                // STARTING TO DISPLAY RESULTS AS CARD
+                // STARTING TO DISPLAY RESULTS AS CARD  -- should eventually be styled better
                 var card = $("<div>").addClass("card");
                 var cardBody = $("<div>").addClass("card-body");
-                var eventTitle = $("<h4>").addClass("card-title").text(json._embedded.events[i].name);
+                var eventTitle = $("<h4>").addClass("card-title").text(thisResult.name);
 
-                //var city = $("<h4>").addClass("card-title").text(response.name);
+                // get the hyperlink to buy tickets for event
+                var link = $("<a>").attr("href", thisResult.url);
                 
-                // var cityDate = $("<h4>").addClass("card-title").text(date);
-                
-              //   var temperature = $("<p>").addClass("card-text current-temp").text("Temperature: " + tempFahren + " °F");
-             //   var humidity = $("<p>").addClass("card-text current-humidity").text("Humidity: " + response.main.humidity + "%");
-             //   var wind = $("<p>").addClass("card-text current-wind").text("Wind Speed: " + response.wind.speed + " MPH");
+                // set the text for the link
+                link.text(thisResult.name)
+
+               
+                // debug console
+                console.log(thisResult.url)
+                console.log(link)
+
+                // event image
                 var image = $("<img>").attr("src", json._embedded.events[i].images[0].url)
 
-                //var venue = $('<p>').addClass('card-text').text("Venue: " + json._embedded.events[i]. )
+                // venue
+                var venue = $('<p>').addClass('card-text').text("Venue:  " + thisResult._embedded.venues[0].name )
 
-                //var priceRange = $('<p>').addClass('card-text').text("Price range: " + json._embedded)
+
+                // price range
+                var priceText = $('<p>').addClass('card-text').text("Price range: $" + thisResult.priceRanges[0].min 
+                + '  to:  $' + thisResult.priceRanges[0].max )
             
-                // add to page
-                cardBody.append(eventTitle, image)
-                //cardBody.append(eventTitle ); 
+                // add the content to the cardBody
+                cardBody.append(eventTitle, link, image, priceText, venue)
+    
+                // add the cardBody to the card
                 card.append(cardBody);
-            
-              //  $("#currentCity").append(card)
-                // thisResult = $('<p>').text('ThisResult Here')
+                
+                // add the card to the page
                 $('#searchCards').append(card)
             }
 
