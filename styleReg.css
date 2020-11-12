@@ -16,7 +16,7 @@ input {
   
   /* Style the submit button */
   input[type=submit] {
-    background-color: #4CAF50;
+    background-color: brown;
     color: white;
   }
   

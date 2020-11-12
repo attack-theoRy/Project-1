@@ -20,6 +20,11 @@ var storedUsers = [
     email : "default@aol.com",
     sn : 'admin',
     pw : 'password'
+  },
+  {
+    email : 'PiroozWallace@gmail.com',
+    sn : 'theoRy',
+    pw : 'password'
   }
 ]
 
@@ -52,12 +57,30 @@ http://apilayer.net/api/check
 function loadUsers()
 {
 
-  storedUsers = JSON.parse(localStorage.getItem('saveUserArray'))
+  // load the savedUsers onto the array
+  var getStoredArray = JSON.parse(localStorage.getItem('saveUserArray'))
+
+  // make sure there is something stored
+  if(getStoredArray !== null)
+  {
+  storedUsers = getStoredArray
+  console.log(storedUsers)
+  }
+
+  console.log(storedUsers)
 
 }
 
-
 var form = document.getElementById("registerForm");
+
+var clear = document.getElementById("clearLocal");
+
+// for debugging, used to clear out the localStorage array of user accounts
+clear.addEventListener('click', function(event) {
+  event.preventDefault()
+  localStorage.clear()
+  $('#form_results').text('Local Storage is Cleared')
+})
 
 // event listener for the submit function
 form.addEventListener("submit", function(event) {
@@ -71,43 +94,55 @@ loadUsers()
 function registerEmail()
 {
 
+  // debug console
+  console.log('registerClick')
+  
+
   // get the user's email
   var emailInput = $('#email').val()
 
   // get the user's password
   var passwordInput = $('#pw').val()
 
+  // get the usernameInput
   var usernameInput = $('#sn').val()
 
-  // set to default
-  var newUser = storedUsers
+  
+  // set to form fields
+  var newUser = {
+    email : emailInput,
+    sn : usernameInput,
+    pw : passwordInput
+  }
 
   // make sure there is something stored, otherwise dont check
   if(storedUsers !== null)
   {
+    // check the localStorage array and see if there are any duplicates
   for(var i = 0; i < storedUsers.length; i++)
   {
     // check if email or username is the same
-    if(emailInput === storedUsers[i].email)
+    if(emailInput == storedUsers[i].email)
     {
       $('#form_results').text('Email already taken')
       isUnique = false
-
+      console.log('notUnique')
     }
-    else if(usernameInput === storedUsers[i].sn)
+    else if(usernameInput == storedUsers[i].sn)
     {
       $('#form_results').text('Username already taken')
       isUnique = false
+      console.log('notUnique')
     }
   }
 }
   
-  // add it to the query
-  queryURL += emailInput
+  // add it to the query - deprecrated
+  // queryURL += emailInput
 
   // ajax call with mailboxlayer api
 $.ajax({
-    url: queryURL,
+    url: queryURL + emailInput,
     method: "GET"
   })
   .then(function (response){
@@ -119,44 +154,29 @@ $.ajax({
     console.log(response)
 
     // check to make sure email is valid
-    if(response.format_valid && response.mx_found)
+    if(response.format_valid && response.mx_found && isUnique)
     {
-      // debug 
-      console.log("email valid")
 
+      // add new user to object array and then also to localStorage
+      storedUsers.push(newUser)
+
+      // add it localstorage
+      localStorage.setItem('saveUserArray', JSON.stringify(storedUsers))
+
+      // debug
+      console.log(isUnique) 
+      console.log("email valid")
+      console.log(storedUsers)
+
+      // change the username at the top of the page
       $('#user').text(usernameInput)
 
         
       // display if email is valid
       $('#form_results').text('Email is VALID!')
 
-
-      // set the new user with inputs if it's unique and valid email
-      if(isUnique)
-      {
-        // store the new variables in the new user object
-        //newUser[0].email = emailInput
-        // newUser[0].pw = passwordInput
-        // newUser[0].sn = usernameInput
-
-         console.log(newUser)
-
-         console.log(usernameInput)
-        
-         // add user to array of objects
-        //storedUsers.push(newUser[0])
-
-        // add it localstorage
-        localStorage.setItem('saveUserArray', JSON.stringify(storedUsers))
-
-        $('<p>').text()
-
-        // debug console
-        console.log(storedUsers)
-  
-      }
-
-        console.log("format")
+      // debug console
+      console.log(newUser)
     }
     else
     {
@@ -165,16 +185,23 @@ $.ajax({
     
     }
 
+     // reset back unique to true for the next click
+  isUnique = true
+
     // reset the queryURL and email input
-    $('#email').empty()
-    queryURL = url + apiKey + '&email='
+    //$('#email').empty()
+    //queryURL = url + apiKey + '&email='
 
   
   })
+
+ 
+
 }
 
 
 function login()
 {
+  
 
 }
