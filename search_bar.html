@@ -30,7 +30,7 @@
                         <li class="uk-active nav-item uk-align-left"><a href="homePage.html">wknd.</a></li>
                         <li class="uk-active nav-item"><a href="search_bar.html">FIND</a></li>
                         <li class="uk-active nav-item"><a href="register.html">REGISTER</a></li>
-                        <li class="uk-active nav-item"><a href="#">@username</a></li>
+                        <li class="uk-active nav-item"><a id='user' href="#">@username</a></li>
                     </ul>
                 </div>
             </nav>
@@ -64,6 +64,16 @@
     </div>
 
     <!--Search Function-->
+    <!-- Load registered user-->
+<script>
+
+    var currentUser = JSON.parse(localStorage.getItem('currentUser'))
+    if(currentUser !== null)
+    {
+        $('#user').text(currentUser.sn)
+    }
+
+</script>
     <script src="./searchBarFunction.js"></script>
 </body>
 

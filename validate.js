@@ -28,20 +28,10 @@ var storedUsers = [
   }
 ]
 
-//var newUser = new storedUsers
 
 // boolean to check if user is unique
 var isUnique = true
 
-// create and set a default user for localStorage
-//var defaultUser = storedUsers
-
-//defaultUser.email = "default@aol.com"
-//defaultUser.sn = "admin"
-//defaultUser.pw = 'password'
-
-// add default user to array
-//storedUsers[0] = defaultUser
 
 /*
  Example api call
@@ -67,10 +57,18 @@ function loadUsers()
   console.log(storedUsers)
   }
 
+  // debug console
   console.log(storedUsers)
+
+  var currentUser = JSON.parse(localStorage.getItem('currentUser'))
+  if(currentUser !== null)
+  {
+      $('#user').text(currentUser.sn)
+  }
 
 }
 
+// get registerForm variable and clear button variable to add event listeners
 var form = document.getElementById("registerForm");
 
 var clear = document.getElementById("clearLocal");
@@ -137,8 +135,6 @@ function registerEmail()
   }
 }
   
-  // add it to the query - deprecrated
-  // queryURL += emailInput
 
   // ajax call with mailboxlayer api
 $.ajax({
@@ -163,6 +159,9 @@ $.ajax({
       // add it localstorage
       localStorage.setItem('saveUserArray', JSON.stringify(storedUsers))
 
+      // set the current user for persistence across pages
+      localStorage.setItem('currentUser', JSON.stringify(newUser))
+
       // debug
       console.log(isUnique) 
       console.log("email valid")
@@ -173,12 +172,12 @@ $.ajax({
 
         
       // display if email is valid
-      $('#form_results').text('Email is VALID!')
+      $('#form_results').text('You Are Registered! Enjoy!')
 
       // debug console
       console.log(newUser)
     }
-    else
+    else if(!(response.format_valid || response.mx_found))
     {
       // display if it is not
       $('#form_results').text('Email not valid')
@@ -186,17 +185,11 @@ $.ajax({
     }
 
      // reset back unique to true for the next click
-  isUnique = true
+    isUnique = true
 
-    // reset the queryURL and email input
-    //$('#email').empty()
-    //queryURL = url + apiKey + '&email='
-
-  
   })
 
  
-
 }
 
 
