@@ -19,12 +19,14 @@ var storedUsers = [
      // each user will have email, screenname and password stored
     email : "default@aol.com",
     sn : 'admin',
-    pw : 'password'
+    pw : 'password',
+    city : 'Sacramento'
   },
   {
     email : 'PiroozWallace@gmail.com',
     sn : 'theoRy',
-    pw : 'password'
+    pw : 'password',
+    city : 'Berkeley'
   }
 ]
 
@@ -105,12 +107,16 @@ function registerEmail()
   // get the usernameInput
   var usernameInput = $('#sn').val()
 
+  // 
+  var cityInput = $('#city').val()
+
   
   // set to form fields
   var newUser = {
     email : emailInput,
     sn : usernameInput,
-    pw : passwordInput
+    pw : passwordInput,
+    city : cityInput
   }
 
   // make sure there is something stored, otherwise dont check
