@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/uikit.min.css" />
         <script src="js/uikit.min.js"></script>
         <script src="js/uikit-icons.min.js"></script>
-    <link rel="stylesheet" href="homePage.css">
+    <link rel="stylesheet" href="css/homePage.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -31,6 +31,25 @@
             </nav>
 </head>
 <body>
+
+     <!--Register form (feel free to change the styling on all of this as this is like default w3schools styles-->
+     <div class="container box">
+        <form id='registerForm'>
+        
+          <!--Email input-->
+          <label for='email'>Email</label>
+        <input type='text' id='email' name='email' required>
+        
+        <!--Username input-->
+          <label for="sn">Username</label>
+          <input type="text" id="sn" name="sn" required>
+      
+          <!--Password input with regular expressions for password criteria-->
+          <label for="pw">Password</label>
+        <input type="password" id="pw" name="pw"> 
+          <input type="submit" value="Submit">
+        </form>
+
 
 
     
