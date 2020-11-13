@@ -75,7 +75,6 @@ var searchFunction = function (event) {
             console.log('No results with that criteria')
         }
         
-
             // Do other things.
         },
         error: function (xhr, status, err) {
