@@ -15,22 +15,16 @@ var searchFunction = function (event) {
             console.log(searchEvent)
             console.log(searchCity)
             console.log(json);
-
             console.log(json._embedded.events[0].name)
 
-            /*  for(var i = 0; i < json._embedded.event.length; i++)
-              {
-                  // display each element
-                  $('<p>').text(json._embedded.event[i].name)
- 
-              } */
             // Parse the response.
-
             console.log(json._embedded.events[0].name)
-            for (var i = 0; i < 5 /*json._embedded.event.length8*/; i++) {
-                // display each element
+
+            // display the list results
+            for (var i = 0; i < json._embedded.event.length; i++) {
+                
+                 // display each element
                 var thisResult = $('<p>').text(json._embedded.events[i].name)
-                // thisResult = $('<p>').text('ThisResult Here')
                 $('#searchResults').append(thisResult)
             }
 
@@ -38,7 +32,6 @@ var searchFunction = function (event) {
         },
         error: function (xhr, status, err) {
             // This time, we do not end up here!
-
         }
     });
 }
