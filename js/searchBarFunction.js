@@ -69,7 +69,7 @@ var searchFunction = function (event) {
         else
         {
             // error checking display  --- feel free to style differently
-            $('#searchResults').text('No results with that criteria')
+            $('#searchResults').text('No results with that criteria')   
             $('#searchResults').css({'color':'white'})
             $('#searchResults').css({'background-color':'black'})
             console.log('No results with that criteria')
