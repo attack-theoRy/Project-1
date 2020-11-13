@@ -44,6 +44,7 @@
     var currentUser = JSON.parse(localStorage.getItem('currentUser'))
     if(currentUser !== null)
     {
+        console.log(currentUser)
         $('#user').text(currentUser.sn)
     }
 

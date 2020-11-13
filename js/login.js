@@ -1,3 +1,7 @@
+var isMatch = false
+
+var storedUsers
+
 // load the users from localStorage file
 function loadUsers()
 {
@@ -8,7 +12,7 @@ function loadUsers()
   // make sure there is something stored
   if(getStoredArray !== null)
   {
-  storedUsers = getStoredArray
+   storedUsers = getStoredArray
   console.log(storedUsers)
   }
 
@@ -21,7 +25,17 @@ function loadUsers()
  //     $('#user').text(currentUser.sn)
  // }
 
+ // feel free to give better styling
+ $('#credentialsMsg').css({'color':'yellow'})
+ $('#credentialsMsg').css({'background-color':'black'})
+
+
 }
+
+loadUsers()
+
+// get registerForm variable and clear button variable to add event listeners
+var form = document.getElementById("loginForm");
 
 // event listener for the submit function
 form.addEventListener("submit", function(event) {
@@ -35,6 +49,8 @@ function login()
 
      // debug console
   console.log('registerClick')
+
+  console.log(storedUsers)
   
 
   // get the user's email
@@ -46,17 +62,7 @@ function login()
   // get the usernameInput
   var usernameInput = $('#sn').val()
 
-  // 
-  var cityInput = $('#city').val()
-
   
-  // set to form fields
-  var newUser = {
-    email : emailInput,
-    sn : usernameInput,
-    pw : passwordInput,
-    city : cityInput
-  }
 
  // make sure there is something stored, otherwise dont check
  if(storedUsers !== null)
@@ -64,18 +70,31 @@ function login()
    // check the localStorage array and see if there are any duplicates
  for(var i = 0; i < storedUsers.length; i++)
  {
-   // check if email or username is the same
-   if(emailInput == storedUsers[i].email)
+   // check if username
+   if(usernameInput == storedUsers[i].sn && passwordInput == storedUsers[i].pw)
    {
-     $('#form_results').text('Email already taken')
-     isUnique = false
-     console.log('notUnique')
-   }
-   else if(usernameInput == storedUsers[i].sn)
+
+     // set the current user in localstorage memory
+     localStorage.setItem('currentUser', JSON.stringify(storedUsers[i]))
+
+     // change the user at the top as well
+     $('#user').text(storedUsers[i].sn)
+     isMatch = true
+     window.location = 'homePage.html'
+     return
+  }
+   else
    {
-     $('#form_results').text('Username already taken')
-     isUnique = false
-     console.log('notUnique')
-   }
+     // if there is no match for the username and password
+      isMatch = false
+  }
  }
+
+ // error message if dont match up with any of the saved objects
+ if(!isMatch)
+ {
+ $('#credentialsMsg').text('Username and/or password dont match')
+  }
+}
+
 }
