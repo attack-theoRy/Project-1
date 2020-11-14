@@ -62,3 +62,12 @@ input {
     left: -35px;
     content: "&#10006;";
   }
+
+  #searchCards {
+
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+
+  }

@@ -34,6 +34,11 @@ var searchFunction = function (event) {
                  
                 // STARTING TO DISPLAY RESULTS AS CARD  -- should eventually be styled better
                 var card = $("<div>").addClass("card");
+
+                // MAKE ROWS AND COLUMNS
+                card.addClass('.row')
+                card.addClass('.col-4')
+
                 var cardBody = $("<div>").addClass("card-body");
                 var eventTitle = $("<h4>").addClass("card-title").text(thisResult.name);
 
@@ -53,11 +58,22 @@ var searchFunction = function (event) {
                 var venue = $('<p>').addClass('card-text').text("Venue:  " + thisResult._embedded.venues[0].name )
 
                 // price range
+
+                // make sure price range exists
+                if(thisResult.priceRanges)
+                {
                 var priceText = $('<p>').addClass('card-text').text("Price range: $" + thisResult.priceRanges[0].min 
-                + '  to:  $' + thisResult.priceRanges[0].max )
+                + '  to:  $' + thisResult.priceRanges[0].max)
+
+                       // add the content to the cardBody
+                       cardBody.append(eventTitle, link, image, priceText, venue)
+                }
+                else{
+                    cardBody.append(eventTitle, link, image,venue )
+                }
+
             
-                // add the content to the cardBody
-                cardBody.append(eventTitle, link, image, priceText, venue)
+         
     
                 // add the cardBody to the card
                 card.append(cardBody);
