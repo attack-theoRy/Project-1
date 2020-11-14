@@ -28,21 +28,27 @@
             <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
                 <div class="uk-navbar-right uk-light">
                     <ul class="uk-navbar-nav">
-                        <li class="uk-active nav-item uk-align-left"><a href="homePage.html">wknd.</a></li>
+                        <li class="uk-active nav-item">
+                            <a href="homePage.html">wknd.</a>
+                            <div class="uk-navbar-dropdown">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <li class="uk-active nav-item"><a href="register.html">REGISTER</a></li>
+                                    <li class="uk-active nav-item"><a href="login.html">LOGIN</a></li>
+                                </ul>
+                            </div>
+                        </li>
                         <li class="uk-active nav-item"><a href="search_bar.html">FIND</a></li>
-                        <li class="uk-active nav-item"><a href="register.html">REGISTER</a></li>
                         <li class="uk-active nav-item"><a id='user' href="#">@username</a></li>
                     </ul>
                 </div>
             </nav>
-
     <div class="header titleBox">
         <h1 class="title">Search For An Event In Your Area!</h1>
     </div>
 
     <!--Search Bar CSS-->
     <div>
-        <form id="searchBar" class="uk-search uk-search-default uk-position-bottom-center">
+        <form id="searchBar" class="uk-search uk-search-default uk-position-bottom-center search">
            
             <input id='searchEvent' type="search" placeholder="Name of Event">
             <input id='searchCity' type="search" placeholder="City">
