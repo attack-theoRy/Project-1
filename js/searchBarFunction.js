@@ -3,12 +3,11 @@ var searchFunction = function (event) {
     event.preventDefault()
     var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?"
     var searchEvent = "keyword=" + document.querySelector('#searchEvent').value
-    var searchGenre = "&grenreId=" + document.querySelector('#genreId').value
     var city = "&city=" + document.querySelector('#searchCity').value
     var query = "&apikey=rjC9JcYGVmI9QLKslEzKTEDnb93gABPp"
     $.ajax({
         type: "GET",
-        url: queryURL + searchEvent + searchGenre + city + query,
+        url: queryURL + searchEvent + city + query,
         async: true,
         dataType: "json",
         success: function (json) {

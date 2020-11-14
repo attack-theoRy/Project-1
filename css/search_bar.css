@@ -29,3 +29,8 @@ img{
     padding-left: 80px;
 
   }
+
+  .search {
+        position: sticky; 
+        top: 1;                 
+  }
