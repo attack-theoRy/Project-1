@@ -88,6 +88,7 @@ var searchFunction = function (event) {
                 }
                 
 
+                
                 cardBody.css('border-color', 'yellow')
                 
                 // add the cardBody to the card
@@ -96,6 +97,7 @@ var searchFunction = function (event) {
                 // put a border on the cards
                 card.css('border', 'solid 4px black');
 
+                // add default styling to result cards
                 card.addClass('uk-card uk-card-default')
                 
                 
