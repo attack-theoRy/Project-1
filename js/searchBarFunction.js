@@ -3,6 +3,7 @@ var searchFunction = function (event) {
     event.preventDefault()
     var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?"
     var searchEvent = "keyword=" + document.querySelector('#searchEvent').value
+    
     var city = "&city=" + document.querySelector('#searchCity').value
     var query = "&apikey=rjC9JcYGVmI9QLKslEzKTEDnb93gABPp"
     $.ajax({
@@ -32,30 +33,30 @@ var searchFunction = function (event) {
                 var thisResult = json._embedded.events[i]
                  
                 // STARTING TO DISPLAY RESULTS AS CARD  -- should eventually be styled better
-                var card = $("<div>").addClass("card")
+                var card = $("<div>").addClass("uk-card-secondary")
 
-                // MAKE ROWS AND COLUMNS
-               // card.addClass('.row')
-               // card.addClass('.col-4')
 
-                var cardBody = $("<div>").addClass("card-body");
-                var eventTitle = $("<h4>").addClass("card-title").text(thisResult.name);
+                var cardBody = $("<div>").addClass("uk-card-body");
+                var eventTitle = $("<h4>").addClass("uk-card-title").text(thisResult.name);
 
                 // get the hyperlink to buy tickets for event
                 var link = $("<a>").attr("href", thisResult.url);
-               // link.css('')
-        
+
+                link.addClass('uk-card-title')
+
                 
                 // set the text for the link
                 link.text(thisResult.name)
 
-             //  link.addClass("card-title")
+             
+                // dates of the concert
+                var dates = $('<p>').text('Dates: ' + thisResult.dates.start.localDate + ' at ' + thisResult.dates.start.localTime)
 
-                var blankline = $('<p>').text()
 
                 // debug console
                 console.log(link)
 
+                // put the link on a separate line
                 var linkText = $('<h2>').append(link)
 
                 // event image
@@ -81,15 +82,13 @@ var searchFunction = function (event) {
                     + '  to:  $' + thisResult.priceRanges[0].max)
 
                     // add the content to the cardBody
-                    cardBody.append(linkText, image, priceText, venue)
+                    cardBody.append(linkText, image, dates, priceText, venue)
                 }
                 else{
-                    cardBody.append(linkText, image, venue )
+                    cardBody.append(linkText, image, dates, venue )
                 }
                 
 
-                
-                cardBody.css('border-color', 'yellow')
                 
                 // add the cardBody to the card
                 card.append(cardBody);

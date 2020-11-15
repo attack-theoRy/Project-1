@@ -43,12 +43,28 @@
                 </div>
             </nav>
 
+            <div class='uk-card-secondary' id='profileCard'></div>
+
             <script>
 
+                // get the current user from localStorage
                 var currentUser = JSON.parse(localStorage.getItem('currentUser'))
+                
+                // if localStorage has user, display
                 if(currentUser !== null)
                 {
                     $('#user').text(currentUser.sn)
+
+                    var bodyCard = $('<div>').addClass('uk-card-body');
+                    var nameCard = $('<p>').addClass('uk-card-title').text('Username: ' + currentUser.sn);
+                    var emailCard = $('<p>').text('Email: ' + currentUser.email);
+                    var cityCard = $('<p>').text('City: ' + currentUser.city);
+
+                        bodyCard.append(nameCard, emailCard, cityCard)
+
+                    $('#profileCard').append(bodyCard)
+
+
                 }
             
             </script>

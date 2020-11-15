@@ -1,6 +1,21 @@
 var isMatch = false
 
-var storedUsers
+var storedUsers = [
+  {
+     // each user will have email, screenname and password stored
+    email : "default@aol.com",
+    sn : 'admin',
+    pw : 'password',
+    city : 'Sacramento'
+  },
+  {
+    email : 'PiroozWallace@gmail.com',
+    sn : 'theoRy',
+    pw : 'password',
+    city : 'Berkeley'
+  }
+]
+
 
 // load the users from localStorage file
 function loadUsers()
@@ -80,7 +95,7 @@ function login()
      // change the user at the top as well
      $('#user').text(storedUsers[i].sn)
      isMatch = true
-     window.location = 'homePage.html'
+     window.location = 'Profile.html'
      return
   }
    else
