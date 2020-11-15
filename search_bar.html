@@ -23,7 +23,7 @@
 
     <!-- NAV BAR -->
     <div class="uk-position-top">
-        <img src="unsplash.jpg" alt="orange, black, and white background" class="uk-background-fixed uk-light">
+        <img src="unsplash.jpg" alt="orange, black, and white background" class="uk-background uk-light">
         <div class="uk-position-top">
             <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
                 <div class="uk-navbar-right uk-light">
@@ -52,28 +52,23 @@
            
             <input id='searchEvent' type="search" placeholder="Name of Event">
             <span uk-search-icon></span>
+            <input id='searchState' type='search' placeholder='State (2 letter code)'>
             <input id='searchCity' type="search" placeholder="City">
-            <input type="submit" value="submit">
+            <input type="submit" value="Submit">
         </form>
 
 
-    <div class="uk-grid-column uk-grid-row uk-card-small uk-child-width-1-4@s uk-text-center" id='searchCards' uk-grid></div>
+    <div class="uk-grid-column uk-grid-row uk-card-small uk-child-width-1-3@s uk-text-center" id='searchCards' uk-grid></div>
       
 </div>
+
+<!---->
+<p class="uk-position-center" id='searchResults'></p> 
 
 
 </div>
 
     
-
-        
-
-     
-    
-     <!-- <p class="uk-position-bottom-center" id='searchResults'></p> -->
-      
-
-
     
 
 </script>
@@ -90,7 +85,7 @@
         console.log(currentUser.city)
 
         // show default city on search page
-        //showHomeResults(currentUser.city)
+        showHomeResults(currentUser.city)
 
     }
 

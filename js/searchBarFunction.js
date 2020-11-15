@@ -5,10 +5,11 @@ var searchFunction = function (event) {
     var searchEvent = "keyword=" + document.querySelector('#searchEvent').value
     
     var city = "&city=" + document.querySelector('#searchCity').value
+    var stateCode = "&stateCode=" + document.querySelector('#searchState').value
     var query = "&apikey=rjC9JcYGVmI9QLKslEzKTEDnb93gABPp"
     $.ajax({
         type: "GET",
-        url: queryURL + searchEvent + city + query,
+        url: queryURL + searchEvent + city + stateCode + query,
         async: true,
         dataType: "json",
         success: function (json) {
@@ -18,6 +19,9 @@ var searchFunction = function (event) {
 
             // empty the search results first
             $('#searchCards').empty()
+
+            // clear results 
+            $('#searchResults').text('')
 
             if(json.page.totalElements > 0)
             {
@@ -50,7 +54,7 @@ var searchFunction = function (event) {
 
              
                 // dates of the concert
-                var dates = $('<p>').text('Dates: ' + thisResult.dates.start.localDate + ' at ' + thisResult.dates.start.localTime)
+                var dates = $('<p>').text('Date / Time : ' + thisResult.dates.start.localDate + ' at ' + thisResult.dates.start.localTime)
 
 
                 // debug console
@@ -146,6 +150,9 @@ function showHomeResults(homeCity)
     
                 // empty the search results first
                 $('#searchCards').empty()
+
+                // clear results 
+                $('#searchResults').text('')
     
                 if(json.page.totalElements > 0)
                 {

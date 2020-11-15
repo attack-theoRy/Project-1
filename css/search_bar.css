@@ -53,4 +53,7 @@ body {
 }
 form {
     display: inline-block;
+    margin: 0;
+    padding: 2em 0;
+ 
 }
