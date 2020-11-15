@@ -198,9 +198,3 @@ $.ajax({
  
 }
 
-
-function login()
-{
-  
-
-}

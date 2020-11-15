@@ -56,16 +56,20 @@
             <input type="submit" value="submit">
         </form>
 
-        <div class="uk-grid-column-small uk-grid-row-small uk-card-small uk-child-width-1-4@s uk-text-center" id='searchCards' uk-grid>
+        <div class="uk-grid-column uk-grid-row uk-card-small uk-child-width-1-4@s uk-text-center" id='searchCards' uk-grid>
             <div>
    
     </div>
-      <p class="uk-position-bottom-center" id='searchResults'></p>
+     <!-- <p class="uk-position-bottom-center" id='searchResults'></p> -->
         </div>
     </div>
 
 
     </div>
+
+</script>
+<!--Search Function-->
+    <script src="js/searchBarFunction.js"></script>
 
     <!-- Load registered user-->
 <script>
@@ -74,12 +78,15 @@
     if(currentUser !== null)
     {
         $('#user').text(currentUser.sn)
+        console.log(currentUser.city)
+
+        // show default city on search page
+        //showHomeResults(currentUser.city)
 
     }
 
 </script>
-<!--Search Function-->
-    <script src="js/searchBarFunction.js"></script>
+
 </body>
 
 </html>
