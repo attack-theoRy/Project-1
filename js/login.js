@@ -6,13 +6,15 @@ var storedUsers = [
     email : "default@aol.com",
     sn : 'admin',
     pw : 'password',
-    city : 'Sacramento'
+    city : 'Sacramento',
+    state : 'CA'
   },
   {
     email : 'PiroozWallace@gmail.com',
     sn : 'theoRy',
     pw : 'password',
-    city : 'Berkeley'
+    city : 'Berkeley',
+    state : 'CA'
   }
 ]
 
