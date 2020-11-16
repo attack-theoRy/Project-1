@@ -36,11 +36,7 @@ function loadUsers()
   // debug console
   console.log(storedUsers)
 
-  //var currentUser = JSON.parse(localStorage.getItem('currentUser'))
-  //if(currentUser !== null)
- // {
- //     $('#user').text(currentUser.sn)
- // }
+
 
  // feel free to give better styling
  $('#credentialsMsg').css({'color':'yellow'})

@@ -93,9 +93,10 @@
     {
         $('#user').text(currentUser.sn)
         console.log(currentUser.city)
+        console.log(currentUser.state)
 
         // show default city on search page
-        showHomeResults(currentUser.city)
+        showHomeResults(currentUser.city, currentUser.state)
 
     }
 

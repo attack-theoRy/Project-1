@@ -81,7 +81,7 @@ var clear = document.getElementById("clearLocal");
 clear.addEventListener('click', function(event) {
   event.preventDefault()
   localStorage.clear()
-  $('#form_results').text('Local Storage is Cleared')
+  $('#form_results').text('Local Storage is cleared and you have been logged out')
 })
 
 // event listener for the submit function
@@ -185,6 +185,8 @@ $.ajax({
         
       // display if email is valid
       $('#form_results').text('You Are Registered! Enjoy!')
+
+      
 
       // debug console
       console.log(newUser)

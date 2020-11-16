@@ -69,6 +69,7 @@ var searchFunction = function (event) {
              
                 // dates of the concert
                 var dates = $('<p>').text('Date / Time : ' + thisResult.dates.start.localDate + ' at ' + thisResult.dates.start.localTime)
+                dates.css({"font-family": "Garamond, bold", "font-size": "150%"} )
 
 
                 // debug console
@@ -90,20 +91,33 @@ var searchFunction = function (event) {
                 // venue
                 var venue = $('<p>').addClass('card-text').text("Venue:  " + thisResult._embedded.venues[0].name )
 
+                venue.css({'color': 'white'})
+                venue.css({"font-family": "Garamond, bold", "font-size": "150%"} )
+
 
                 // make sure price range exists
                 if(thisResult.priceRanges)
                 {
+
                 
                     // get the price range for tickets
                     var priceText = $('<p>').addClass('card-text').text("Price range: $" + thisResult.priceRanges[0].min 
                     + '  to:  $' + thisResult.priceRanges[0].max)
 
+                    // change text to green
+                    priceText.css({'color': 'green'})
+
                     // add the content to the cardBody
                     cardBody.append(linkText, image, dates, priceText, venue)
                 }
                 else{
-                    cardBody.append(linkText, image, dates, venue )
+
+                    var priceText = $('<p>').addClass('card-text').text('Price range: TBA')
+                    
+                    // change text to green
+                    priceText.css({'color': 'green'})
+
+                    cardBody.append(linkText, image, dates, priceText, venue )
                 }
                 
 
@@ -145,16 +159,17 @@ var searchFunction = function (event) {
 $('#searchBar').submit(searchFunction)
 
 // displays results from home city
-function showHomeResults(homeCity)
+function showHomeResults(homeCity, homeState)
 {
 
         var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?"
         var searchEvent = "keyword=" + document.querySelector('#searchEvent').value
         var city = "&city=" + homeCity
+        var state = '&state=' + homeState
         var query = "&apikey=rjC9JcYGVmI9QLKslEzKTEDnb93gABPp"
         $.ajax({
             type: "GET",
-            url: queryURL + searchEvent + city + query,
+            url: queryURL + searchEvent + city + state + query,
             async: true,
             dataType: "json",
             success: function (json) {
@@ -201,6 +216,9 @@ function showHomeResults(homeCity)
                  
                     // dates of the concert
                     var dates = $('<p>').text('Dates: ' + thisResult.dates.start.localDate + ' at ' + thisResult.dates.start.localTime)
+
+
+                    dates.css({"font-family": "Garamond, bold", "font-size": "150%"} )
     
     
                     // debug console
@@ -221,6 +239,8 @@ function showHomeResults(homeCity)
     
                     // venue
                     var venue = $('<p>').addClass('card-text').text("Venue:  " + thisResult._embedded.venues[0].name )
+                    venue.css({"font-family": "Garamond, bold", "font-size": "150%"} )
+                    venue.css({'color': 'white'})
     
     
                     // make sure price range exists
@@ -230,11 +250,14 @@ function showHomeResults(homeCity)
                         // get the price range for tickets
                         var priceText = $('<p>').addClass('card-text').text("Price range: $" + thisResult.priceRanges[0].min 
                         + '  to:  $' + thisResult.priceRanges[0].max)
+
+                        priceText.css({'color': 'green'})
     
                         // add the content to the cardBody
                         cardBody.append(linkText, image, dates, priceText, venue)
                     }
                     else{
+                        
                         cardBody.append(linkText, image, dates, venue )
                     }
                     
