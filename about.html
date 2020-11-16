@@ -21,7 +21,7 @@
             <img src="unsplash.jpg" alt="orange, black, and white background" class="uk-background-cover">
             <div class="uk-position-top">
                 <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
-                    <div class="uk-navbar-right uk-dark">
+                    <div class="uk-navbar-right uk-light">
                         <ul class="uk-navbar-nav">
                             <li class="uk-active nav-item">
                                 <a href="homePage.html">wknd.</a>
@@ -33,18 +33,36 @@
                                 </div>
                             </li>
                             <li class="uk-active nav-item"><a href="search_bar.html">FIND</a></li>
-                            <li class="uk-active nav-item"><a id='user' href="#">@username</a></li>
+                            <li class="uk-active nav-item"><a id='user' href="Profile.html">@username</a></li>
                         </ul>
                     </div>
                 </nav>
 
-                <h1 style='color:white'>A Little Bit About Us</h1>
-
-    <div style='color:red; vertical-align:middle' id="aboutWknd">
+                <div class='container'>
+                <div id='aboutCard' class='uk-card-secondary'>
+                <div class='uk-card-title'>About Us</h1>
+                <div class='uk-card-body'>                
+    <div style='color:red; vertical-align:center' id="aboutWknd">
         <p>Wknd. was founded with the single purpose of offering everyone the opportunity to seize their weekend.
             Whether it's a concert, or at an art gallery, Wknd. wants you to enjoy your time.
         </p>
     </div>
+</div>
+
+    </div>
+    </div>
+
+    <script>
+
+        var currentUser = JSON.parse(localStorage.getItem('currentUser'))
+        if(currentUser !== null)
+        {
+            $('#user').text(currentUser.sn)
+            console.log(currentUser.city)
+    
+        }
+    
+    </script>
 </body>
 
 </html>
