@@ -162,7 +162,7 @@ $.ajax({
     console.log(response)
 
     // check to make sure email is valid
-    if(response.format_valid && response.mx_found && isUnique)
+    if(response.format_valid && response.mx_found && isUnique && response.smtp_check)
     {
 
       // add new user to object array and then also to localStorage
@@ -189,7 +189,7 @@ $.ajax({
       // debug console
       console.log(newUser)
     }
-    else if(!(response.format_valid || response.mx_found))
+    else if(!(response.format_valid && response.mx_found && response.smtp_check))
     {
       // display if it is not
       $('#form_results').text('Email not valid')
