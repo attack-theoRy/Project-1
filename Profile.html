@@ -58,12 +58,13 @@
                     $('#user').text(currentUser.sn)
 
                     var bodyCard = $('<div>').addClass('uk-card-body');
-                    var nameCard = $('<p>').addClass('uk-card-title').text('Username: ' + currentUser.sn);
-                    var emailCard = $('<h3>').text('Email: ' + currentUser.email);
+                    var profileCard = $('<div>').addClass('uk-card-title').text("Your Profile")
+                    var nameCard = $('<h4>').text('Username: ' + currentUser.sn);
+                    var emailCard = $('<h4>').text('Email: ' + currentUser.email);
                     var cityCard = $('<h4>').text('City: ' + currentUser.city);
                     var stateCard = $('<h4>').text('State: ' + currentUser.state)
 
-                    bodyCard.append(nameCard, emailCard, cityCard, stateCard)
+                    bodyCard.append(profileCard, nameCard, emailCard, cityCard, stateCard)
 
                     $('#profileCard').append(bodyCard)
 
