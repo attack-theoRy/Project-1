@@ -52,8 +52,17 @@
            
             <input id='searchEvent' type="search" placeholder="Name of Event">
             <span uk-search-icon></span>
+            <select name="Genres" id="classification" multiple>
+                <option value="Arts & Theatre">Arts & Theatre</option>
+                <option value="Sports">Sports</option>
+                <option value="Music">Music</option>
+                <option value='Comedy'>Comedy</option>
+                <option value="Miscellaneous">Misc</option>
+              </select>
             <input id='searchState' type='search' placeholder='State (2 letter code)'>
             <input id='searchCity' type="search" placeholder="City">
+            <input id='startDate' type='date' placeholder='Start Date'>
+            <input id='endDate' type='date' placeholder='End Date'>
             <input type="submit" value="Submit">
         </form>
 
@@ -85,7 +94,7 @@
         console.log(currentUser.city)
 
         // show default city on search page
-        showHomeResults(currentUser.city)
+     //   showHomeResults(currentUser.city)
 
     }
 
