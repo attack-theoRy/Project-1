@@ -11,17 +11,17 @@ var searchFunction = function (event) {
     var city = "&city=" + document.querySelector('#searchCity').value
     var stateCode = "&stateCode=" + document.querySelector('#searchState').value
    // var countryCode = '&countryCode=' + document.querySelector('#searchCountry').value
-    var startDate = '&localStartDateTime=' + document.querySelector('#startDate').value
-    var endDate = '&localStartDateEndTime=' + document.querySelector('#endDate').value
+   // var startDate = '&startDateTime=' + document.querySelector('#startDate').value
+   // var endDate = '&endDateTime=' + document.querySelector('#endDate').value
     var query = "&apikey=rjC9JcYGVmI9QLKslEzKTEDnb93gABPp"
 
     console.log('debugHere')
-    console.log(document.querySelector('#startDate').value)
-    console.log(document.querySelector('#endDate').value)
+   // console.log(document.querySelector('#startDate').value)
+   // console.log(document.querySelector('#endDate').value)
 
     $.ajax({
         type: "GET",
-        url: queryURL + searchClassification + searchEvent +  stateCode + city  + query,
+        url: queryURL + searchClassification + searchEvent +  stateCode + city + query,
         async: true,
         dataType: "json",
         success: function (json) {
