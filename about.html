@@ -4,14 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <script src="js/uikit.min.js"></script>
+    <script src="js/uikit-icons.min.js"></script>
+<link rel="stylesheet" href="css/homepage.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <title>About Us</title>
 </head>
 
 <body>
-    <h1>A Little Bit About Us</h1>
+ 
+         <!-- NAV BAR -->
+         <div class="uk-position-relative">
+            <img src="unsplash.jpg" alt="orange, black, and white background" class="uk-background-cover">
+            <div class="uk-position-top">
+                <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+                    <div class="uk-navbar-right uk-dark">
+                        <ul class="uk-navbar-nav">
+                            <li class="uk-active nav-item">
+                                <a href="homePage.html">wknd.</a>
+                                <div class="uk-navbar-dropdown">
+                                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                                        <li class="uk-active nav-item"><a href="register.html">REGISTER</a></li>
+                                        <li class="uk-active nav-item"><a href="login.html">LOGIN</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="uk-active nav-item"><a href="search_bar.html">FIND</a></li>
+                            <li class="uk-active nav-item"><a id='user' href="#">@username</a></li>
+                        </ul>
+                    </div>
+                </nav>
 
-    <div id="aboutWknd">
-        <p>Wknd. was founded with the single purpose of offering ev5eryone the opportunity to seize their weekend.
+                <h1 style='color:white'>A Little Bit About Us</h1>
+
+    <div style='color:red; vertical-align:middle' id="aboutWknd">
+        <p>Wknd. was founded with the single purpose of offering everyone the opportunity to seize their weekend.
             Whether it's a concert, or at an art gallery, Wknd. wants you to enjoy your time.
         </p>
     </div>

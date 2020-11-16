@@ -58,9 +58,10 @@
                     var bodyCard = $('<div>').addClass('uk-card-body');
                     var nameCard = $('<p>').addClass('uk-card-title').text('Username: ' + currentUser.sn);
                     var emailCard = $('<h3>').text('Email: ' + currentUser.email);
-                    var cityCard = $('<h3>').text('City: ' + currentUser.city);
+                    var cityCard = $('<h4>').text('City: ' + currentUser.city);
+                    var stateCard = $('<h4>').text('State: ' + currentUser.state)
 
-                    bodyCard.append(nameCard, emailCard, cityCard)
+                    bodyCard.append(nameCard, emailCard, cityCard, stateCard)
 
                     $('#profileCard').append(bodyCard)
 

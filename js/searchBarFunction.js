@@ -53,11 +53,13 @@ var searchFunction = function (event) {
 
 
                 var cardBody = $("<div>").addClass("uk-card-body");
-                var eventTitle = $("<h4>").addClass("uk-card-title").text(thisResult.name);
+
+                //var eventTitle = $("<h4>").addClass("uk-card-title").text(thisResult.name);
 
                 // get the hyperlink to buy tickets for event
                 var link = $("<a>").attr("href", thisResult.url);
 
+                // make the link the card title
                 link.addClass('uk-card-title')
 
                 
