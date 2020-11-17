@@ -68,8 +68,16 @@ var searchFunction = function (event) {
 
              
                 // dates of the concert
+                if(thisResult.dates.start.localTime)
+                {
                 var dates = $('<p>').text('Date / Time : ' + thisResult.dates.start.localDate + ' at ' + thisResult.dates.start.localTime)
                 dates.css({"font-family": "Garamond, bold", "font-size": "150%"} )
+            }
+            else{
+                var dates = $('<p>').text('Date / Time : ' + thisResult.dates.start.localDate + ' time TBA' )
+                dates.css({"font-family": "Garamond, bold", "font-size": "150%"} )
+
+            }
 
 
                 // debug console
