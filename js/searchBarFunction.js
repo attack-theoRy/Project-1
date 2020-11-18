@@ -4,14 +4,14 @@ var searchFunction = function (event) {
     event.preventDefault()
     
     var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?"
-    var searchEvent = "&keyword=" + document.querySelector('#searchEvent').value
+    var searchEvent = "keyword=" + document.querySelector('#searchEvent').value
 
     var searchClassification = '&classificationName=' + document.querySelector('#classification').value
     
     var city = "&city=" + document.querySelector('#searchCity').value
     var stateCode = "&stateCode=" + document.querySelector('#searchState').value
    // var countryCode = '&countryCode=' + document.querySelector('#searchCountry').value
-   // var startDate = '&startDateTime=' + document.querySelector('#startDate').value
+   // var startDate = '&localDate=' + document.querySelector('#startDate').value
    // var endDate = '&endDateTime=' + document.querySelector('#endDate').value
     var query = "&apikey=rjC9JcYGVmI9QLKslEzKTEDnb93gABPp"
 
@@ -21,7 +21,7 @@ var searchFunction = function (event) {
 
     $.ajax({
         type: "GET",
-        url: queryURL + searchClassification + searchEvent +  stateCode + city + query,
+        url: queryURL + searchEvent + searchClassification /*+  startDate */+ stateCode + city + query,
         async: true,
         dataType: "json",
         success: function (json) {
@@ -102,6 +102,8 @@ var searchFunction = function (event) {
                 venue.css({'color': 'white'})
                 venue.css({"font-family": "Garamond, bold", "font-size": "150%"} )
 
+                var venueAddress = $('<p>').addClass('card-text').text("Address: " + thisResult._embedded.venues[0].address.line1)
+
 
                 // make sure price range exists
                 if(thisResult.priceRanges)
@@ -116,7 +118,7 @@ var searchFunction = function (event) {
                     priceText.css({'color': 'green'})
 
                     // add the content to the cardBody
-                    cardBody.append(linkText, image, dates, priceText, venue)
+                    cardBody.append(linkText, image, dates, priceText, venue, venueAddress)
                 }
                 else{
 
@@ -125,7 +127,7 @@ var searchFunction = function (event) {
                     // change text to green
                     priceText.css({'color': 'green'})
 
-                    cardBody.append(linkText, image, dates, priceText, venue )
+                    cardBody.append(linkText, image, dates, priceText, venue, venueAddress )
                 }
                 
 
