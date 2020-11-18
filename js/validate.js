@@ -4,7 +4,7 @@
 var apiKey = 'ba4e9c96082b0721c5c3dbaf01177cf2'
 
 // starting URL
-var url = 'http://apilayer.net/api/check?access_key='
+var url = 'https://apilayer.net/api/check?access_key='
 
 // example API call
 var queryURL = url + apiKey + '&email='
@@ -165,6 +165,9 @@ $.ajax({
     if(response.format_valid && response.mx_found && isUnique && response.smtp_check)
     {
 
+      // debug check
+      console.log('Passed all the tests')
+
       // add new user to object array and then also to localStorage
       storedUsers.push(newUser)
 
@@ -191,8 +194,11 @@ $.ajax({
       // debug console
       console.log(newUser)
     }
-    else if(!(response.format_valid && response.mx_found && response.smtp_check))
+    else //if(!(response.format_valid && response.mx_found && response.smtp_check))
     {
+
+      // debug check
+      console.log('didnt pass test')
       // display if it is not
       $('#form_results').text('Email not valid')
     
