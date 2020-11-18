@@ -53,18 +53,27 @@
            
             <input id='searchEvent' type="search" placeholder="Name of Event">
             <span uk-search-icon></span>
-            <select name="Genres" id="classification" multiple>
+            <select name="dropdown" id="classification">
+                <option value=''>All</option>
                 <option value="Arts & Theatre">Arts & Theatre</option>
                 <option value="Sports">Sports</option>
                 <option value="Music">Music</option>
                 <option value='Comedy'>Comedy</option>
                 <option value="Miscellaneous">Misc</option>
-                <option value=''>All</option>
               </select>
             <input id='searchState' type='search' placeholder='State (2 letter code)'>
             <input id='searchCity' type="search" placeholder="City">
-         <!--   <input id='startDate' type='date' placeholder='Start Date'> -->
+            <label for='startDateTime'>Start after Date / Time</label>
+            <input id='startDateTime' type='datetime-local' placeholder='Start Date / Time'> 
          <!--   <input id='endDate' type='date' placeholder='End Date'> -->
+         <select name='Sort' id='sort'>
+             <option value='name,asc'>Name (ascending)</option>
+             <option value='name,desc'>Name (descending</option>
+             <option value='date,asc'>Date (ascending)</option>
+             <option value='date,desc'>Date (descending)</option>
+             <option value='distance,asc'>Distance</option>
+            <option value='random'>Randomize</option>
+         </select>
             <input type="submit" value="Submit">
         </form>
 

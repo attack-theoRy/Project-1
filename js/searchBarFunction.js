@@ -3,17 +3,20 @@
 var searchFunction = function (event) {
     event.preventDefault()
     
-    var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?"
+    var queryURL = "https://app.ticketmaster.com/discovery/v2/events?"
     var searchEvent = "keyword=" + document.querySelector('#searchEvent').value
 
     var searchClassification = '&classificationName=' + document.querySelector('#classification').value
+
+    var sortFilter = '&sort=' + document.querySelector('#sort').value
     
     var city = "&city=" + document.querySelector('#searchCity').value
     var stateCode = "&stateCode=" + document.querySelector('#searchState').value
    // var countryCode = '&countryCode=' + document.querySelector('#searchCountry').value
-   // var startDate = '&localDate=' + document.querySelector('#startDate').value
+    var startDate = '&startDateTime=' + document.querySelector('#startDateTime').value
    // var endDate = '&endDateTime=' + document.querySelector('#endDate').value
     var query = "&apikey=rjC9JcYGVmI9QLKslEzKTEDnb93gABPp"
+    var locale = "&locale=*"
 
     console.log('debugHere')
    // console.log(document.querySelector('#startDate').value)
@@ -21,7 +24,7 @@ var searchFunction = function (event) {
 
     $.ajax({
         type: "GET",
-        url: queryURL + searchEvent + searchClassification /*+  startDate */+ stateCode + city + query,
+        url: queryURL + query + locale + searchEvent + searchClassification +  startDate + sort + city + stateCode,
         async: true,
         dataType: "json",
         success: function (json) {
@@ -31,6 +34,10 @@ var searchFunction = function (event) {
 
             // empty the search results first
             $('#searchCards').empty()
+
+            console.log(city)
+            console.log(stateCode)
+            console.log(json)
 
             // clear results 
             $('#searchResults').text('')
@@ -71,11 +78,11 @@ var searchFunction = function (event) {
                 if(thisResult.dates.start.localTime)
                 {
                 var dates = $('<p>').text('Date / Time : ' + thisResult.dates.start.localDate + ' at ' + thisResult.dates.start.localTime)
-                dates.css({"font-family": "Garamond, bold", "font-size": "150%"} )
+                dates.css({"font-family": "Garamond, bold", 'color': 'red', 'font-size' : '120%'} )
             }
             else{
                 var dates = $('<p>').text('Date / Time : ' + thisResult.dates.start.localDate + ' time TBA' )
-                dates.css({"font-family": "Garamond, bold", "font-size": "150%"} )
+                dates.css({"font-family": "Garamond, bold", "color" : "red", "font-size": "120%"} )
 
             }
 
