@@ -4,7 +4,7 @@ var searchFunction = function (event) {
     event.preventDefault()
     
     var queryURL = "https://app.ticketmaster.com/discovery/v2/events?"
-    var searchEvent = "keyword=" + document.querySelector('#searchEvent').value
+    var searchEvent = "&keyword=" + document.querySelector('#searchEvent').value
 
     var searchClassification = '&classificationName=' + document.querySelector('#classification').value
 
@@ -13,8 +13,9 @@ var searchFunction = function (event) {
     var city = "&city=" + document.querySelector('#searchCity').value
     var stateCode = "&stateCode=" + document.querySelector('#searchState').value
    // var countryCode = '&countryCode=' + document.querySelector('#searchCountry').value
-    var startDate = '&startDateTime=' + document.querySelector('#startDateTime').value
-   // var endDate = '&endDateTime=' + document.querySelector('#endDate').value
+    var startDate = '&startDateTime=' + document.querySelector('#startDate').value + 'T00:00:00Z'
+
+    var endDate = '&endDateTime=' + document.querySelector('#endDate').value + 'T00:00:00Z'
     var query = "&apikey=rjC9JcYGVmI9QLKslEzKTEDnb93gABPp"
     var locale = "&locale=*"
 
@@ -24,7 +25,7 @@ var searchFunction = function (event) {
 
     $.ajax({
         type: "GET",
-        url: queryURL + query + locale + searchEvent + searchClassification +  startDate + sort + city + stateCode,
+        url: queryURL + locale + searchEvent + searchClassification + startDate + endDate + sortFilter + city + stateCode + query,
         async: true,
         dataType: "json",
         success: function (json) {
@@ -34,6 +35,8 @@ var searchFunction = function (event) {
 
             // empty the search results first
             $('#searchCards').empty()
+
+            //console.log('Total request' + url)
 
             console.log(city)
             console.log(stateCode)
