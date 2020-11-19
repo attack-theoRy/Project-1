@@ -81,13 +81,17 @@ var searchFunction = function (event) {
             {
 
                 if(totalPages > 1){
+
+                    // debug check
+                    console.log(totalPages)
+
                 // show the next and previous buttons if there is more than one page
                 $('#nextButton').show()
                 $('#prevButton').show()
                 $('#multi').show()
-                var pageCount = $('<span>').text(totalPages)
                 $('#pageCount').show()
-                $('#pageCount').append(pageCount)
+                $('#pageCount').text(totalPages + ' Pages')
+                
                 
                 }
                 else{
