@@ -96,7 +96,6 @@ var searchFunction = function (event) {
 
                 var cardBody = $("<div>").addClass("uk-card-body");
 
-                //var eventTitle = $("<h4>").addClass("uk-card-title").text(thisResult.name);
 
                 // get the hyperlink to buy tickets for event
                 var link = $("<a>").attr("href", thisResult.url);
@@ -217,50 +216,70 @@ $('#prevButton').on('click', prevPage)
 // getting the next page of results
 function nextPage()
 {
-    currentPage++
+    
 
     console.log(currentPage)
-    console.log
+  
     
-    if(currentPage < totalPages)
+    if(currentPage < totalPages -1 )
+    {
+
+        currentPage++
+        console.log(currentPage)
+  
 
         // filter by page param
         var pageDivider = '&page=' + currentPage
 
+        console.log(pageDivider)
+
         var queryURL = "https://app.ticketmaster.com/discovery/v2/events?"
+
+        // filter by keyword
         var searchEvent = "&keyword=" + document.querySelector('#searchEvent').value
     
+        // filter by category
         var searchClassification = '&classificationName=' + document.querySelector('#classification').value
     
+        // sort filter
         var sortFilter = '&sort=' + document.querySelector('#sort').value
         
+        // filter by city
         var city = "&city=" + document.querySelector('#searchCity').value
+
+
+        // filter by state
         var stateCode = "&stateCode=" + document.querySelector('#searchState').value
-       // var countryCode = '&countryCode=' + document.querySelector('#searchCountry').value
+
+
        
-       // set the variable for input dates
+       // get the start date parameter from the input box
        var inputStartDate = document.querySelector('#startDate').value
-       
+
+       // get the end Date parameter from the input box
        var inputEndDate = document.querySelector('#endDate').value
     
        var startDate = ''
        var endDate = ''
        
        // only add value if user specified date
-       if(inputStartDate !== '')
+       if(inputStartDate)
        {
             startDate = '&startDateTime=' + document.querySelector('#startDate').value + 'T00:00:00Z'
        }
     
     
        // only add value if user specified date
-       if(inputEndDate !== '')
+       if(inputEndDate)
        {
            endDate = '&endDateTime=' + document.querySelector('#endDate').value + 'T00:00:00Z'
        }
     
     
+       // api key
         var query = "&apikey=rjC9JcYGVmI9QLKslEzKTEDnb93gABPp"
+        
+        // all locales
         var locale = "&locale=*"
     
         console.log('NextPage api call')
@@ -272,11 +291,10 @@ function nextPage()
             dataType: "json",
             success: function (json) {
 
-                           // empty the search results first
+            // empty the search results first
             $('#searchCards').empty()
 
-            //console.log('Total request' + url)
-
+        
             console.log(city)
             console.log(stateCode)
             console.log(json)
@@ -414,6 +432,8 @@ function nextPage()
 
             
         });
+
+    }
 
     }
 
@@ -421,12 +441,14 @@ function nextPage()
     // getting the next page of results
 function prevPage()
 {
-    currentPage--
+    
 
     console.log(currentPage)
     
     
-    if(currentPage >= 0)
+    if(currentPage >= 1)
+    {
+        currentPage--
 
         // filter by page param
         var pageDivider = '&page=' + currentPage
@@ -451,14 +473,14 @@ function prevPage()
        var endDate = ''
        
        // only add value if user specified date
-       if(inputStartDate !== '')
+       if(inputStartDate)
        {
             startDate = '&startDateTime=' + document.querySelector('#startDate').value + 'T00:00:00Z'
        }
     
     
        // only add value if user specified date
-       if(inputEndDate !== '')
+       if(inputEndDate)
        {
            endDate = '&endDateTime=' + document.querySelector('#endDate').value + 'T00:00:00Z'
        }
@@ -476,7 +498,7 @@ function prevPage()
             dataType: "json",
             success: function (json) {
 
-                           // empty the search results first
+            // empty the search results first
             $('#searchCards').empty()
 
             //console.log('Total request' + url)
@@ -618,6 +640,8 @@ function prevPage()
 
             
         });
+
+    }
 
     }
 
