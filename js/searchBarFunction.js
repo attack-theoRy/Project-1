@@ -60,8 +60,8 @@ var searchFunction = function (event) {
             // empty the search results first
             $('#searchCards').empty()
 
-            //console.log('Total request' + url)
-
+         
+            // debug check
             console.log(city)
             console.log(stateCode)
             console.log(json)
@@ -79,6 +79,25 @@ var searchFunction = function (event) {
 
             if(json.page.totalElements > 0)
             {
+
+                if(totalPages > 1){
+                // show the next and previous buttons if there is more than one page
+                $('#nextButton').show()
+                $('#prevButton').show()
+                $('#multi').show()
+                var pageCount = $('<span>').text(totalPages)
+                $('#pageCount').show()
+                $('#pageCount').append(pageCount)
+                
+                }
+                else{
+                    $('#nextButton').hide()
+                    $('#prevButton').hide()
+                    $('#multi').hide()
+                    $('#pageCount').hide()
+
+                }
+
                 console.log(json)
             // loop through all results
             for (var i = 0; i < json._embedded.events.length; i++) {
@@ -94,6 +113,7 @@ var searchFunction = function (event) {
                 var card = $("<div>").addClass("uk-card-secondary")
 
 
+                // create a card body for this result
                 var cardBody = $("<div>").addClass("uk-card-body");
 
 
@@ -137,7 +157,7 @@ var searchFunction = function (event) {
                 image.height(200)
                 image.width(300)
 
-                // venue
+                // venue name and styling for this card
                 var venue = $('<p>').addClass('card-text').text("Venue:  " + thisResult._embedded.venues[0].name )
 
                 venue.css({'color': 'white'})
@@ -213,7 +233,7 @@ $('#nextButton').on('click', nextPage)
 
 $('#prevButton').on('click', prevPage)
 
-// getting the next page of results
+// getting the next page of results (has to be a separate API call)
 function nextPage()
 {
     
@@ -221,6 +241,7 @@ function nextPage()
     console.log(currentPage)
   
     
+    // make sure current page is less than the total number of pages
     if(currentPage < totalPages -1 )
     {
 
@@ -295,6 +316,7 @@ function nextPage()
             $('#searchCards').empty()
 
         
+            // debug check
             console.log(city)
             console.log(stateCode)
             console.log(json)
