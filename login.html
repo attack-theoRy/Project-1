@@ -26,7 +26,7 @@
                         </li>
                         <li class="uk-active nav-item"><a href="search_bar.html">FIND</a></li>
                         <!-- <li class="uk-active nav-item"><a href="about.html">ABOUT</a></li> -->
-                        <li class="uk-active nav-item"><a id='user' href="#">@username</a>
+                        <li class="uk-active nav-item"><a id='user' href="Profile.html">@username</a>
                             <div class="uk-navbar-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
                                     <li class="uk-active nav-item"><a href="register.html">REGISTER</a></li>
@@ -44,21 +44,22 @@
      <div class="container box">
         <form id='loginForm'>
         
-          <!--Email input-->
-      <!--    <label for='email'>Email</label>  -->
-      <!--  <input type='text' id='email' name='email' required> -->
         
         <!--Username input-->
-          <label for="sn">Username</label>
+          <label for="sn" style='color:white; background:black'>Username</label>
           <input type="text" id="sn" name="sn" required>
       
           <!--Password input-->
-          <label for="pw">Password</label`>
+          <label for="pw" style='color:white; background:black'>Password</label`>
         <input type="password" id="pw" name="pw" required> 
-          <input type="submit" value="Submit">
+          <input type="submit" value="Sign In">
         </form>
+        </div>
 
-        <h3 id='credentialsMsg'>Username and password have to match exactly</h3>
+        <h3 style='color:yellow; background:black; id='credentialsMsg'>Username and password have to match exactly</h3>
+
+
+        <button id ='logout' style='uk-button-primary'>Log Out</button>
 
 
 

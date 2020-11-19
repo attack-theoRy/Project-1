@@ -33,8 +33,17 @@ function loadUsers()
   console.log(storedUsers)
   }
 
+/*  var currentUser = JSON.parse(localStorage.getItem('currentUser'))
+
   // debug console
   console.log(storedUsers)
+
+  if(currentUser !== null)
+  {
+    $('#user').text(currentUser.sn)
+  }
+
+*/
 
 
 
@@ -111,3 +120,17 @@ function login()
 }
 
 }
+
+
+// event listener for the submit function
+$('#logout').on('click', logout)
+
+function logout(){
+
+  // set the current user in localstorage memory to no one
+  localStorage.setItem('currentUser', '')
+
+}
+
+
+
