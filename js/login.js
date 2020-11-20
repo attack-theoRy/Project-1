@@ -41,7 +41,7 @@ function loadUsers()
   // debug console
   console.log(storedUsers)
 
-  if(currUser !== null)
+  if(currUser)
   {
     $('#user').text(currUser.sn)
   }
@@ -147,10 +147,10 @@ function logout(){
   }
 
   // set the current user in localstorage memory to no one
-  localStorage.setItem('currentUser', JSON.stringify(currentUser))
+  localStorage.setItem('currentUser', null)
 
   // remove username when logged out
-  $('#user').text('')
+  $('#user').text('@username')
 
   $('#logMsg').css({'color':'yellow', 'background':'black'})
   $('#logMsg').text('You have been logged out')

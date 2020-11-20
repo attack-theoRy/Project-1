@@ -48,14 +48,30 @@
 
     // load the saved User
     var currentUser = JSON.parse(localStorage.getItem('currentUser'))
-    if(currentUser !== null)
+
+    if(currentUser)
     {
         console.log(currentUser)
+
+        if(currentUser.sn == '')
+        {
+            $('#user').text('@username')
+        }
+        else
         $('#user').text(currentUser.sn)
+        
     }
     else
     {
-        localStorage.setItem('currentUser', '')
+        var currentUser = {
+            email : '',
+            sn : '@username',
+            pw : '',
+            city : '',
+            state : ''
+        }
+
+        localStorage.setItem('currentUser', null)
     }
 
 </script>

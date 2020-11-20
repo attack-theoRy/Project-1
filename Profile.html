@@ -53,7 +53,7 @@
                 var currentUser = JSON.parse(localStorage.getItem('currentUser'))
                 
                 // if localStorage has user, display
-                if(currentUser.sn == '')
+                if(!currentUser)
                 {
                     var loggedOut = $('<h4>').text('Logged Out')
                         $('#profileCard').append(loggedOut)
