@@ -33,17 +33,19 @@ function loadUsers()
   console.log(storedUsers)
   }
 
-/*  var currentUser = JSON.parse(localStorage.getItem('currentUser'))
+  console.log('Hello' + localStorage.getItem('currentUser'))
+
+  var currUser = JSON.parse(localStorage.getItem('currentUser'))
+
 
   // debug console
   console.log(storedUsers)
 
-  if(currentUser !== null)
+  if(currUser !== null)
   {
-    $('#user').text(currentUser.sn)
+    $('#user').text(currUser.sn)
   }
 
-*/
 
 
 
@@ -55,6 +57,9 @@ function loadUsers()
 }
 
 loadUsers()
+
+
+
 
 // get registerForm variable and clear button variable to add event listeners
 var form = document.getElementById("loginForm");
@@ -68,6 +73,9 @@ form.addEventListener("submit", function(event) {
 function login()
 {
 
+ 
+  // reset the logout message
+  $('#logMsg').text('')
 
      // debug console
   console.log('registerClick')
@@ -96,11 +104,13 @@ function login()
    if(usernameInput == storedUsers[i].sn && passwordInput == storedUsers[i].pw)
    {
 
+    $('#logMsg').css({'color':'yellow', 'background':'black'})
      // set the current user in localstorage memory
      localStorage.setItem('currentUser', JSON.stringify(storedUsers[i]))
 
      // change the user at the top as well
      $('#user').text(storedUsers[i].sn)
+     $('#logMsg').text('Logged In!')
      isMatch = true
      window.location = 'Profile.html'
      return
@@ -115,7 +125,7 @@ function login()
  // error message if dont match up with any of the saved objects
  if(!isMatch)
  {
- $('#credentialsMsg').text('Username and/or password dont match')
+   $('#credentialsMsg').text('Username and/or password dont match')
   }
 }
 
@@ -127,8 +137,25 @@ $('#logout').on('click', logout)
 
 function logout(){
 
+  var currentUser =   {
+    
+   email : "",
+   sn : '',
+   pw : '',
+   city : '',
+   state : ''
+  }
+
   // set the current user in localstorage memory to no one
-  localStorage.setItem('currentUser', '')
+  localStorage.setItem('currentUser', JSON.stringify(currentUser))
+
+  // remove username when logged out
+  $('#user').text('')
+
+  $('#logMsg').css({'color':'yellow', 'background':'black'})
+  $('#logMsg').text('You have been logged out')
+
+
 
 }
 

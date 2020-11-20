@@ -26,7 +26,7 @@
                         </li>
                         <li class="uk-active nav-item"><a href="search_bar.html">FIND</a></li>
                         <!-- <li class="uk-active nav-item"><a href="about.html">ABOUT</a></li> -->
-                        <li class="uk-active nav-item"><a id='user' href="Profile.html">@username</a>
+                        <li class="uk-active nav-item"><a id='user' href="Profile.html">@username</a></li>
                             <div class="uk-navbar-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
                                     <li class="uk-active nav-item"><a href="register.html">REGISTER</a></li>
@@ -37,8 +37,7 @@
                     </ul>
                 </div>
             </nav>
-</head>
-<body>
+
 
      <!--Register form (feel free to change the styling on all of this as this is like default w3schools styles-->
      <div class="container box">
@@ -56,19 +55,36 @@
         </form>
         </div>
 
-        <h3 style='color:yellow; background:black; id='credentialsMsg'>Username and password have to match exactly</h3>
+        <h3 style='color:yellow; background:black;' id='credentialsMsg'>Username and password have to match exactly</h3>
 
 
-        <button id ='logout' style='uk-button-primary'>Log Out</button>
+        <button id ='logout' class='uk-button uk-button-secondary'>Log Out</button>
+
+        <!-- placeholder for logout message -->
+        <h4 id='logMsg'></h4>
 
 
 
-        <script src="js/login.js">
-
-        
-        
-        
-        </script>
     
+
+
+<script src="js/login.js"></script>
+
+<script>
+/* load the saved User
+ var currentUser = JSON.parse(localStorage.getItem('currentUser'))
+
+ console.log(currentUser)
+    if(currentUser !== null)
+    {
+        console.log(currentUser)
+        $('#user').text(currentUser.sn)
+    }
+
+    */
+</script>
+
+
 </body>
+
 </html>

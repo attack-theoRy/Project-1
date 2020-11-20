@@ -53,7 +53,12 @@
                 var currentUser = JSON.parse(localStorage.getItem('currentUser'))
                 
                 // if localStorage has user, display
-                if(currentUser !== null)
+                if(currentUser.sn == '')
+                {
+                    var loggedOut = $('<h4>').text('Logged Out')
+                        $('#profileCard').append(loggedOut)
+                }
+                else if(currentUser)
                 {
                     $('#user').text(currentUser.sn)
 
@@ -67,7 +72,6 @@
                     bodyCard.append(profileCard, nameCard, emailCard, cityCard, stateCard)
 
                     $('#profileCard').append(bodyCard)
-
 
                 }
             
