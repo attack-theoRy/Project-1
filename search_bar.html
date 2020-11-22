@@ -67,10 +67,9 @@
             <input id='searchState' type='search' placeholder='State (2 letter code)'>
             <!--Filter by city-->
             <input id='searchCity' type="search" placeholder="City">
-          <!--Filter-->
-          <!--  <label for='startDateTime'></label> -->
+          <!--Filter by start date (all results start after this date-->
             <input id='startDate' type='date' name='startDate' placeholder='Start Date'>
-           <!-- <input id='startTime' type='time' name='startTime'> --> 
+           <!--Filter results by end date (all results end before this date)-->
            <input id='endDate' type='date' name='endDate' placeholder='End Date'> 
          <select name='Sort' id='sort'>
              <option value='name,asc'>Name (ascending)</option>
@@ -89,10 +88,11 @@
 
         <!--<h5 id='multi' style='display:none; color:white; background:black;  text-align: center;'>Total results per page: 20</h5> -->
 
-        <!-- Number of pages in search results-->
+        <!-- Number of pages in search results, start hidden-->
         <h5 id='pageCount' style='display:none; color:white; background:black;  text-align: center;'>Total Pages: </h5>
 
 
+        <!-- ui kit grid for display results-->
     <div class="uk-grid-column uk-grid-row uk-card-small uk-child-width-1-3@s uk-text-center" id='searchCards' uk-grid></div>
       
 </div>
@@ -113,6 +113,7 @@
     <!-- Load registered user-->
 <script>
 
+// load current user in top right if the user is logged in and show the home results
     var currentUser = JSON.parse(localStorage.getItem('currentUser'))
     if(currentUser !== null)
     {

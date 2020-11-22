@@ -696,11 +696,11 @@ function showHomeResults(homeCity, homeState)
                 console.log(searchCity)
                 console.log(json);
     
-                // empty the search results first
-                $('#searchCards').empty()
+            // empty the search results first
+            $('#searchCards').empty()
 
 
-                            // clear results 
+            // clear results 
             $('#searchResults').text('')
 
 
@@ -711,6 +711,7 @@ function showHomeResults(homeCity, homeState)
             console.log('Total pages = ' + totalPages)
 
 
+            // make sure there are results in the first place
             if(json.page.totalElements > 0)
             {
 
