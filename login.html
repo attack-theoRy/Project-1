@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wknd.</title>
+    <link rel="stylesheet" href="css/uikit.min.css" />
+        <script src="js/uikit.min.js"></script>
+        <script src="js/uikit-icons.min.js"></script>
+    <link rel="stylesheet" href="css/homepage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+
+<body>
+   
+    <div class="uk-position-relative">
+        <img src="unsplash.jpg" alt="orange, black, and white background" class="uk-background-cover">
+        <div class="uk-position-top">
+            <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+                <div class="uk-navbar-right uk-light">
+                    <ul class="uk-navbar-nav">
+                        <li class="uk-active nav-item">
+                            <a href="homePage.html">wknd.</a>
+                        </li>
+                        <li class="uk-active nav-item"><a href="search_bar.html">FIND</a></li>
+                        <!-- <li class="uk-active nav-item"><a href="about.html">ABOUT</a></li> -->
+                        <li class="uk-active nav-item"><a id='user' href="Profile.html">@username</a></li>
+                            <div class="uk-navbar-dropdown">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <li class="uk-active nav-item"><a href="register.html">REGISTER</a></li>
+                                    <li class="uk-active nav-item"><a href="login.html">LOGIN</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+
+     <!--Register form (feel free to change the styling on all of this as this is like default w3schools styles-->
+     <div class="container box">
+        <form id='loginForm'>
+        
+        
+        <!--Username input-->
+          <label for="sn" style='color:white; background:black'>Username</label>
+          <input type="text" id="sn" name="sn" required>
+      
+          <!--Password input-->
+          <label for="pw" style='color:white; background:black'>Password</label`>
+        <input type="password" id="pw" name="pw" required> 
+          <input type="submit" value="Sign In">
+        </form>
+        </div>
+
+        <h3 style='color:yellow; background:black;' id='credentialsMsg'>Username and password have to match exactly</h3>
+
+
+        <!--Log out button-->
+        <button id ='logout' class='uk-button uk-button-secondary'>Log Out</button>
+
+        <!-- placeholder for logout message -->
+        <h4 id='logMsg'></h4>
+
+    
+
+
+<script src="js/login.js"></script>
+
+</script>
+
+
+</body>
+
+</html>

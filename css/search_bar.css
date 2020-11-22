@@ -1,0 +1,59 @@
+.header {
+    text-align: center;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+img{
+    height: 100vh;
+    width: 100vw;
+}
+
+.titleBox{
+    background-color: black;
+    margin: auto;
+    width: 50%;
+    margin-bottom: 5px;
+}
+
+.title{
+    color: white;
+    padding: 10px;
+}
+
+/*#searchCards {
+
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-bottom: 50px;
+    padding-left: 80px;
+
+  } */
+
+  .search {
+        position: sticky; 
+        top: 1;                 
+  }
+
+  div.form
+{
+    display: block;
+    text-align: center;
+}
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+body {
+    text-align: center;
+}
+form {
+    display: inline-block;
+    margin: 0;
+    padding: 2em 0;
+ 
+}

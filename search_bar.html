@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Search Bar Prototype</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.9/dist/css/uikit.min.css" />
+    <link rel="stylesheet" href="css/search_bar.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit.min.js"
+        integrity="sha512-OZ9Sq7ecGckkqgxa8t/415BRNoz2GIInOsu8Qjj99r9IlBCq2XJlm9T9z//D4W1lrl+xCdXzq0EYfMo8DZJ+KA=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.5.9/js/uikit-icons.min.js"
+        integrity="sha512-hcz3GoZLfjU/z1OyArGvM1dVgrzpWcU3jnYaC6klc2gdy9HxrFkmoWmcUYbraeS+V/GWSgfv6upr9ff4RVyQPw=="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+        </script>
+
+    <!-- NAV BAR -->
+    <div class="uk-position-top">
+        <img src="unsplash.jpg" alt="orange, black, and white background" class="uk-background uk-light">
+        <div class="uk-position-top">
+            <nav class="uk-navbar-container uk-navbar-transparent uk-nav-primary" uk-navbar>
+                <div class="uk-navbar-right uk-light">
+                    <ul class="uk-navbar-nav">
+                        <li class="uk-active nav-item">
+                            <a href="homePage.html">wknd.</a>
+                        </li>
+                        <li class="uk-active nav-item"><a href="search_bar.html">FIND</a></li> 
+                         <!-- <li class="uk-active nav-item"><a href="about.html">ABOUT</a></li> -->
+                        <li class="uk-active nav-item"><a id='user' href="profile.html">@username</a>
+                            <div class="uk-navbar-dropdown">
+                                <ul class="uk-nav uk-navbar-dropdown-nav">
+                                    <li class="uk-active nav-item"><a href="register.html">REGISTER</a></li>
+                                    <li class="uk-active nav-item"><a href="login.html">LOGIN</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+    <div class="header titleBox">
+        <h1 class="title">Search For An Event In Your Area!</h1>
+    </div>
+
+        <!--Search Bar CSS-->
+        <form id="searchBar" class="form">
+           
+            <!--Search by keyword-->
+            <input id='searchEvent' type="search" placeholder="Name of Event">
+            <!--Dropdown box to filter by classification/genre/segment-->
+            <select name="dropdown" id="classification">
+                <option value=''>All</option>
+                <option value="Arts & Theatre">Arts & Theatre</option>
+                <option value="Sports">Sports</option>
+                <option value="Music">Music</option>
+                <option value='Comedy'>Comedy</option>
+                <option value="Miscellaneous">Misc</option>
+              </select>
+
+              <!--Filter by state-->
+            <input id='searchState' type='search' placeholder='State (2 letter code)'>
+            <!--Filter by city-->
+            <input id='searchCity' type="search" placeholder="City">
+          <!--Filter by start date (all results start after this date-->
+            <input id='startDate' type='date' name='startDate' placeholder='Start Date'>
+           <!--Filter results by end date (all results end before this date)-->
+           <input id='endDate' type='date' name='endDate' placeholder='End Date'> 
+         <select name='Sort' id='sort'>
+             <option value='name,asc'>Name (ascending)</option>
+             <option value='name,desc'>Name (descending</option>
+             <option value='date,asc'>Date (ascending)</option>
+             <option value='date,desc'>Date (descending)</option>
+          <!--   <option value='distance,asc'>Distance</option> -->
+            <option value='random'>Randomize</option>
+         </select>
+            <input type="submit" value="Submit">
+        </form>
+
+        <!--Buttons for next and previous pages, start off as hidden-->
+        <button id='prevButton' class="uk-button uk-button-primary hide" style='display:none'>Previous Page</button>
+        <button id='nextButton' class="uk-button uk-button-primary hide" style='display:none'>Next Page</button>
+
+        <!--<h5 id='multi' style='display:none; color:white; background:black;  text-align: center;'>Total results per page: 20</h5> -->
+
+        <!-- Number of pages in search results, start hidden-->
+        <h5 id='pageCount' style='display:none; color:white; background:black;  text-align: center;'>Total Pages: </h5>
+
+
+        <!-- ui kit grid for display results-->
+    <div class="uk-grid-column uk-grid-row uk-card-small uk-child-width-1-3@s uk-text-center" id='searchCards' uk-grid></div>
+      
+</div>
+
+<!---->
+<p class="uk-position-center" id='searchResults'></p> 
+
+
+</div>
+
+    
+<!--Search Function-->
+    <script src="js/searchBarFunction.js"></script>
+
+
+
+</body>
+
+</html>

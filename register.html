@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css"href="css/styleReg.css">
+    <link rel="stylesheet" href="css/uikit.min.css" />
+    <link rel="stylesheet" href="css/register.css">
+        <script src="js/uikit.min.js"></script>
+        <script src="js/uikit-icons.min.js"></script>
+    <title>Register</title>
+</head>
+<body>
+
+    <div class="uk-position-relative">
+      <img src="unsplash.jpg" alt="" class="uk-background-cover">
+      <div class="uk-position-top">
+        <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+          <div class="uk-navbar-right uk-light">
+              <ul class="uk-navbar-nav">
+                  <li class="uk-active nav-item">
+                      <a href="homePage.html">wknd.</a>
+                  </li>
+                  <li class="uk-active nav-item"><a href="search_bar.html">FIND</a></li>
+                  <!-- <li class="uk-active nav-item"><a href="about.html">ABOUT</a></li> -->
+                  <li class="uk-active nav-item"><a id='user' href="Profile.html">@username</a>
+                    <div class="uk-navbar-dropdown">
+                      <ul class="uk-nav uk-navbar-dropdown-nav">
+                          <li class="uk-active nav-item"><a href="register.html">REGISTER</a></li>
+                          <li class="uk-active nav-item"><a href="login.html">LOGIN</a></li>
+                      </ul>
+                  </div>
+                  </li>
+              </ul>
+          </div>
+      </nav>
+          <!--Heading for Register form (feel free to change the styling on all of this as this is like default w3schools styles-->
+    <div class="titleBox">
+    <h2 style="text-align:center" class="title">Register for wknd</h2>
+    </div>
+
+    <!--Register form (feel free to change the styling on all of this as this is like default w3schools styles-->
+    <div class="container box">
+        <form id='registerForm'>
+        
+          <!--Email input-->
+          <label for='email'>Email</label>
+        <input type='text' id='email' name='email' required>
+
+        <!--What city you -->
+        <label for='City'>City</label>
+        <input type='text' id='city' name='city' required>
+
+        <label for='State'>State (2 letter code)</label>
+        <input type='text' id='state' name='state' required>
+        
+        <!--Username input-->
+          <label for="sn">Username</label>
+          <input type="text" id="sn" name="sn" required>
+      
+          <!--Password input with regular expressions for password criteria-->
+          <label for="pw">Password</label>
+        <input type="password" id="pw" name="pw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+      
+          <input type="submit" value="Submit">
+        </form>
+
+        <!--Button to clear local storage for debugging purposes-->
+        <!--FOr debugging only-->
+        <button id='clearLocal' style='display:none'>Clear Local Storage and Log Out current user</button> 
+
+      </div>
+      
+
+      <!--Messages that alert users of password criteria-->
+      <div id="message">
+        <h3>Password must contain the following:</h3>
+        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+        <p id="number" class="invalid">A <b>number</b></p>
+        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+      </div>
+
+      <!--Where the results of the mailboxlayer API go-->
+    <h3 style="text-align:center; background-color:black; color:white" id='form_results'>Choose a unique username and email</h3>
+
+      </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/validate.js"></script>
+    
+</body>
+</html>

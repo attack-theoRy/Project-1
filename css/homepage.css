@@ -1,0 +1,32 @@
+#logo {
+    size: 20px;
+}
+
+.home-font{
+    font-size: 300px;
+    padding-left: 1rem;
+    text-align: center;
+    color: white;
+}
+
+.btn {
+    align-items: center;
+}
+
+img{
+    height: 100vh;
+    width: 100vw;
+}
+
+@media screen and (max-width: 1400px) {
+    .header{
+        font-size: 150px;
+        padding-left: 1rem;
+        text-align: center;
+        color: white;
+    }
+}
+
+.navbar{
+    font-size: 40px;
+}
