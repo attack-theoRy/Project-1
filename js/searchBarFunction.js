@@ -1,7 +1,23 @@
-// Global Pages
+// Global Variables
 
 var currentPage = 0 
 var totalPages = 0
+
+// load current user in top right if the user is logged in and show the home results
+function loadCurrent(){
+    var currentUser = JSON.parse(localStorage.getItem('currentUser'))
+    if(currentUser)
+    {
+        $('#user').text(currentUser.sn)
+        console.log(currentUser.city)
+        console.log(currentUser.state)
+
+        // show default city on search page
+        showHomeResults(currentUser.city, currentUser.state)
+    }
+}
+
+loadCurrent()
 
 
 // main search function
@@ -677,6 +693,7 @@ function prevPage()
 
 
 
+
 // displays results from home city
 function showHomeResults(homeCity, homeState)
 {
@@ -721,13 +738,13 @@ function showHomeResults(homeCity, homeState)
                     // debug check
                     console.log(totalPages)
 
-                // show the next and previous buttons if there is more than one page
-                $('#nextButton').show()
-                $('#prevButton').show()
+                    // show the next and previous buttons if there is more than one page
+                    $('#nextButton').show()
+                    $('#prevButton').show()
                 
-                // dont need $('#multi').show()
-                $('#pageCount').show()
-                $('#pageCount').text(totalPages + ' Pages')
+                    // dont need $('#multi').show()
+                    $('#pageCount').show()
+                    $('#pageCount').text(totalPages + ' Pages')
                 
                 
                 }
@@ -740,10 +757,8 @@ function showHomeResults(homeCity, homeState)
                 }
 
     
-                if(json.page.totalElements > 0)
-                {
-                    console.log(json)
-                // loop through all results
+                
+                    // loop through all results
                 for (var i = 0; i < json._embedded.events.length; i++) {
                     
                     // console debug
@@ -764,6 +779,7 @@ function showHomeResults(homeCity, homeState)
                     // get the hyperlink to buy tickets for event
                     var link = $("<a>").attr("href", thisResult.url);
     
+                    // give a title to the card
                     link.addClass('uk-card-title')
     
                     
@@ -842,14 +858,16 @@ function showHomeResults(homeCity, homeState)
                 $('#searchResults').css({'background-color':'black'})
                 console.log('No results with that criteria')
             }
+       } ,
             
                 // Do other things.
-            }
+            
             error: function (xhr, status, err) {
                 // This time, we do not end up here!
             
             }
+
+            
         });
 
-
-}
+    }

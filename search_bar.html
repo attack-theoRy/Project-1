@@ -104,28 +104,10 @@
 </div>
 
     
-    
-
-</script>
 <!--Search Function-->
     <script src="js/searchBarFunction.js"></script>
 
-    <!-- Load registered user-->
-<script>
 
-// load current user in top right if the user is logged in and show the home results
-    var currentUser = JSON.parse(localStorage.getItem('currentUser'))
-    if(currentUser)
-    {
-        $('#user').text(currentUser.sn)
-        console.log(currentUser.city)
-        console.log(currentUser.state)
-
-        // show default city on search page
-        showHomeResults(currentUser.city, currentUser.state)
-    }
-
-</script>
 
 </body>
 
