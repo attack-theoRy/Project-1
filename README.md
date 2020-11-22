@@ -18,9 +18,11 @@ Welcome to Wknd. where you can find something to do this weekend in seconds.
 - JQuery
 - LocalStorage for accounts
 
-Pirooz Wallace - Ticketmaster API / Mailboxlayer API / localStorage account system / Backend / Readme / bugs 
-Hector Garcia - Ticketmaster API
-Eli Derjabin - UI Kit
+Pirooz Wallace - Ticketmaster API (filters + results) / Mailboxlayer API / localStorage account system  
+
+Hector Garcia - Ticketmaster API framework
+
+Eli Derjabin - UI Kit / Front End
 
 
 You can start either by going directly to the 'FIND' page to start searching for events immediately using the Ticketmaster Discovery API or you can register an account and select your city for automatic results when loading the FIND page.  Our register page has a lot of error-checking on it. It needs a complex password and uses the mailboxlayer API to verify that the email is valid.
