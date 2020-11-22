@@ -701,11 +701,11 @@ function showHomeResults(homeCity, homeState)
         var queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?"
         var searchEvent = "keyword=" + document.querySelector('#searchEvent').value
         var city = "&city=" + homeCity
-        var state = '&state=' + homeState
+        var state = '&stateCode=' + homeState
         var query = "&apikey=rjC9JcYGVmI9QLKslEzKTEDnb93gABPp"
         $.ajax({
             type: "GET",
-            url: queryURL + searchEvent + city + state + query,
+            url: queryURL + city + state + query,
             async: true,
             dataType: "json",
             success: function (json) {
