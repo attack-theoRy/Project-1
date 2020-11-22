@@ -18,6 +18,10 @@ Welcome to Wknd. where you can find something to do this weekend in seconds.
 - JQuery
 - LocalStorage for accounts
 
+Pirooz Wallace - Ticketmaster API / Mailboxlayer API / localStorage account system / Backend / Readme / bugs 
+Hector Garcia - Ticketmaster API
+Eli Derjabin - UI Kit
+
 
 You can start either by going directly to the 'FIND' page to start searching for events immediately using the Ticketmaster Discovery API or you can register an account and select your city for automatic results when loading the FIND page.  Our register page has a lot of error-checking on it. It needs a complex password and uses the mailboxlayer API to verify that the email is valid.
 
@@ -35,10 +39,13 @@ Ok now lets finally get to some searching!  If your account is loaded, you will 
 
 <img src='screenshots\SearchResults.png' alt='SearchResults1'>
 
-All types of results for whatever your desire is! <b><u>Remember you can click on the title to buy tickets for each event.</u></b>  All the relevant info is displayed on the cards including the title/ticket info, address, venue, dates and price range for tickets.
+All types of results for whatever your desire is! <b><u>Remember you can click on the title to buy tickets for each event.</u></b>  All the relevant info is displayed on the cards including the title/ticket info, address, venue, dates and price range for tickets. Everytime you hit next or previous the ticketmaster API is called again with different page parameters. 
 
 <img src='screenshots\SearchResults2.png' alt='SearchResults2'> 
 
+
+
+Bugs: when loading default search after logging in, the next and prev buttons api calls are using 
 
                                            
 

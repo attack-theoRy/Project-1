@@ -720,6 +720,10 @@ function showHomeResults(homeCity, homeState)
             // clear results 
             $('#searchResults').text('')
 
+            // set the values here so next/prev buttons work properly
+            document.querySelector('#searchCity').value = homeCity
+            document.querySelector('#searchState').value = homeState
+
 
             // reset these values after search submission
             totalPages = json.page.totalPages
