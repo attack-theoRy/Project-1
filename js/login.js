@@ -33,6 +33,8 @@ function loadUsers()
   console.log(storedUsers)
   }
 
+
+  // debug console
   console.log('Hello' + localStorage.getItem('currentUser'))
 
   var currUser = JSON.parse(localStorage.getItem('currentUser'))
@@ -70,6 +72,8 @@ form.addEventListener("submit", function(event) {
     login()
   })
 
+
+// check login info to storedUsers, registered users and then the current user
 function login()
 {
 
@@ -100,17 +104,20 @@ function login()
    // check the localStorage array and see if there are any duplicates
  for(var i = 0; i < storedUsers.length; i++)
  {
-   // check if username
+   // check if username and password are the same
    if(usernameInput == storedUsers[i].sn && passwordInput == storedUsers[i].pw)
    {
 
+
     $('#logMsg').css({'color':'yellow', 'background':'black'})
-     // set the current user in localstorage memory
+     
+    // set the current user in localstorage memory
      localStorage.setItem('currentUser', JSON.stringify(storedUsers[i]))
 
      // change the user at the top as well
      $('#user').text(storedUsers[i].sn)
      $('#logMsg').text('Logged In!')
+    
      isMatch = true
      window.location = 'Profile.html'
      return
@@ -137,14 +144,6 @@ $('#logout').on('click', logout)
 
 function logout(){
 
-  var currentUser =   {
-    
-   email : "",
-   sn : '',
-   pw : '',
-   city : '',
-   state : ''
-  }
 
   // set the current user in localstorage memory to no one
   localStorage.setItem('currentUser', null)
@@ -152,6 +151,7 @@ function logout(){
   // remove username when logged out
   $('#user').text('@username')
 
+  // set the styling for the log out message
   $('#logMsg').css({'color':'yellow', 'background':'black'})
   $('#logMsg').text('You have been logged out')
 

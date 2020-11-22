@@ -80,6 +80,7 @@ var searchFunction = function (event) {
             if(json.page.totalElements > 0)
             {
 
+                // show next / prev buttons if more than one page
                 if(totalPages > 1){
 
                     // debug check
@@ -88,7 +89,8 @@ var searchFunction = function (event) {
                 // show the next and previous buttons if there is more than one page
                 $('#nextButton').show()
                 $('#prevButton').show()
-                $('#multi').show()
+                
+                // dont need $('#multi').show()
                 $('#pageCount').show()
                 $('#pageCount').text(totalPages + ' Pages')
                 
@@ -97,7 +99,7 @@ var searchFunction = function (event) {
                 else{
                     $('#nextButton').hide()
                     $('#prevButton').hide()
-                    $('#multi').hide()
+                // dont need    $('#multi').hide()
                     $('#pageCount').hide()
 
                 }
@@ -233,8 +235,10 @@ var searchFunction = function (event) {
 // event listener for form submission
 $('#searchBar').submit(searchFunction)
 
+// event listener for next page button
 $('#nextButton').on('click', nextPage)
 
+// event listener for previous page button
 $('#prevButton').on('click', prevPage)
 
 // getting the next page of results (has to be a separate API call)
@@ -695,8 +699,45 @@ function showHomeResults(homeCity, homeState)
                 // empty the search results first
                 $('#searchCards').empty()
 
-                // clear results 
-                $('#searchResults').text('')
+
+                            // clear results 
+            $('#searchResults').text('')
+
+
+            // reset these values after search submission
+            totalPages = json.page.totalPages
+            currentPage = 0
+
+            console.log('Total pages = ' + totalPages)
+
+
+            if(json.page.totalElements > 0)
+            {
+
+                // show next / prev buttons if more than one page
+                if(totalPages > 1){
+
+                    // debug check
+                    console.log(totalPages)
+
+                // show the next and previous buttons if there is more than one page
+                $('#nextButton').show()
+                $('#prevButton').show()
+                
+                // dont need $('#multi').show()
+                $('#pageCount').show()
+                $('#pageCount').text(totalPages + ' Pages')
+                
+                
+                }
+                else{
+                    $('#nextButton').hide()
+                    $('#prevButton').hide()
+                // dont need    $('#multi').hide()
+                    $('#pageCount').hide()
+
+                }
+
     
                 if(json.page.totalElements > 0)
                 {
