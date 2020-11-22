@@ -115,7 +115,7 @@
 
 // load current user in top right if the user is logged in and show the home results
     var currentUser = JSON.parse(localStorage.getItem('currentUser'))
-    if(currentUser !== null)
+    if(currentUser)
     {
         $('#user').text(currentUser.sn)
         console.log(currentUser.city)
@@ -123,7 +123,6 @@
 
         // show default city on search page
         showHomeResults(currentUser.city, currentUser.state)
-
     }
 
 </script>
