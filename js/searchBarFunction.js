@@ -844,7 +844,7 @@ function showHomeResults(homeCity, homeState)
             }
             
                 // Do other things.
-            },
+            }
             error: function (xhr, status, err) {
                 // This time, we do not end up here!
             
