@@ -27,11 +27,11 @@ If you registered correctly then your account will be added to localStorage and 
 
 <img src='screenshots\Profile.png' alt='Profile'>
 
-If you had a previous profile, you can also use the login page to load your stored profile
+If you had a previous profile, you can also use the login page to load your stored profile. You can also log out of your profile if you want to here.
 
 <img src='screenshots\Login.png'  alt='Login'>
 
-Ok now lets finally get to some searching!  If your account is loaded, you will see your username in the upper right corner and when you come to the search page your home city will be automatically loaded and used to display search results. Otherwise you can search for whatever you like on this page. There are a bunch of filters so have fun!  You can search by keyword, category, state, city and dates. The first date input box is to find events that start after that date, while the second date input box is to find events that end before that date, so by using both dates, you can find events within a specified interval. You can also sort results by Name, Date, or Random (must press submit to sort). IF there is more than one page, you can use the next and previous buttons to scroll through them.
+Ok now lets finally get to some searching!  If your account is loaded, you will see your username in the upper right corner and when you come to the search page your home city search results will be displayed. Otherwise you can search for whatever you like on this page. There are a bunch of filters so have fun!  You can search by keyword, category, state, city and dates. The first date input box is to find events that start after that date, while the second date input box is to find events that end before that date, so by using both dates, you can find events within a specified interval. You can also sort results by Name, Date, or Random (must press submit to sort). IF there is more than one page, you can use the next and previous buttons to scroll through them.
 
 <img src='screenshots\SearchResults.png' alt='SearchResults1'>
 
