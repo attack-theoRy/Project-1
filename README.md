@@ -47,7 +47,6 @@ All types of results for whatever your desire is! <b><u>Remember you can click o
 
 
 
-Bugs: when loading default search after logging in, the next and prev buttons api calls are using 
 
                                            
 
