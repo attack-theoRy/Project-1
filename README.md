@@ -3,9 +3,9 @@
 
 Pirooz Wallace | Hector Garcia | Eli Derjabin
 
-Github Repo:
+Github Repo: https://github.com/attack-theoRy/ProjectWknd
 
-Github Pages: 
+Github Pages: https://attack-theory.github.io/ProjectWknd/homePage.html
 
 <img src='screenshots\LandingPage.png' alt=homepage>
 
